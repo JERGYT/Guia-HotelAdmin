@@ -3,7 +3,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const renderTarget = document.getElementById('render-target');
     const browserUrl = document.querySelector('.browser-url');
 
-    // Vistas simuladas (Lo que traería el servidor)
+    
     const vistasHTML = {
         reservas: `
             <div class="injected-view">
@@ -30,7 +30,7 @@ document.addEventListener('DOMContentLoaded', () => {
         btn.addEventListener('click', function() {
             const viewToLoad = this.getAttribute('data-view');
 
-            // Efecto de "Cargando..."
+            
             renderTarget.innerHTML = '<div class="render-target-empty"><span style="color:#6f42c1;"><i class="fas fa-spinner fa-spin"></i> Cargando vista desde el servidor...</span></div>';
 
             setTimeout(() => {
@@ -39,13 +39,13 @@ document.addEventListener('DOMContentLoaded', () => {
                     browserUrl.textContent = 'localhost:5000/HotelAdmin';
                     renderTarget.className = 'render-target-empty';
                 } else {
-                    // Inyectamos el HTML correspondiente
+                    
                     renderTarget.innerHTML = vistasHTML[viewToLoad];
-                    renderTarget.className = ''; // Quitamos clase empty
-                    // Actualizamos la URL simulada
+                    renderTarget.className = ''; 
+                    
                     browserUrl.textContent = `localhost:5000/HotelAdmin/${viewToLoad.charAt(0).toUpperCase() + viewToLoad.slice(1)}`;
                 }
-            }, 600); // Simulamos 600ms de latencia de red
+            }, 600); 
         });
     });
 });

@@ -26,7 +26,7 @@
 
 @keyframes shake { 0%, 100% {transform: translateX(0);} 25% {transform: translateX(-5px);} 75% {transform: translateX(5px);} }
 
-/* === SIMULADOR DE CONSOLA === */
+
 .terminal-window {
     background-color: #1e1e1e;
     border-radius: 8px;
@@ -70,12 +70,12 @@
     flex: 1; outline: none;
 }
 
-/* Colores para los mensajes de la terminal */
+
 .text-success-term { color: #a6e22e; }
 .text-error-term { color: #f92672; }
 .text-warning-term { color: #fd971f; }
 
-/* === ESTILOS DEL QUIZ INTERACTIVO === */
+
 .quiz-card {
     background-color: #f8f9fa;
     border: 1px solid #e9ecef;
@@ -112,7 +112,7 @@
     background-color: #f3f0fa;
 }
 
-/* Clases dinámicas cuando el usuario responde */
+
 .quiz-btn.correct {
     background-color: #d4edda;
     border-color: #28a745;
@@ -131,13 +131,13 @@
     margin-top: 15px;
     font-size: 0.9rem;
     font-weight: 600;
-    display: none; /* Oculto por defecto */
+    display: none;
 }
 .mt-4 { margin-top: 25px; }
 
-/* === CONSTRUCTOR DE CÓDIGO (FASE 4) === */
+
 .code-builder-area {
-    background-color: #272822; /* Color de fondo oscuro típico de editores */
+    background-color: #272822;
     padding: 20px;
     border-radius: 8px;
     color: #f8f8f2;
@@ -149,7 +149,7 @@
 
 .code-select {
     background-color: #49483e;
-    color: #a6e22e; /* Verde neón para el código que escribe el usuario */
+    color: #a6e22e;
     border: 1px dashed #fd971f;
     padding: 2px 5px;
     font-family: 'Consolas', 'Courier New', monospace;
@@ -157,12 +157,12 @@
     border-radius: 4px;
     outline: none;
     cursor: pointer;
-    appearance: none; /* Quita la flechita fea por defecto */
+    appearance: none;
 }
 
 .code-select:hover { background-color: #5e5d52; }
 
-/* Clases de validación visual para los campos de código */
+
 .code-select.success {
     border: 2px solid #a6e22e;
     background-color: rgba(166, 226, 46, 0.2);
@@ -186,9 +186,9 @@
 }
 .btn-primary:hover { background-color: #5a32a3; }
 
-/* === SIMULADOR DE EXCEL (FASE 5) === */
+
 .btn-excel {
-    background-color: #107c41; /* Verde clásico de Excel */
+    background-color: #107c41;
     color: white;
     border: none;
     padding: 10px 20px;
@@ -248,7 +248,7 @@
     font-weight: bold;
 }
 
-/* Animación cuando aparece una fila nueva */
+
 .new-row {
     animation: highlightRow 1.5s ease-out forwards;
 }
@@ -258,7 +258,7 @@
     100% { background-color: transparent; }
 }
 
-/* === SIMULADOR DE LAYOUT (FASE 6) === */
+
 .layout-controls { display: flex; gap: 15px; flex-wrap: wrap; margin-bottom: 20px;}
 
 .btn-layout {
@@ -306,7 +306,7 @@
 @keyframes pulse { 0% { opacity: 0.5; } 50% { opacity: 1; } 100% { opacity: 0.5; } }
 @keyframes dropIn { from { transform: translateY(-20px); opacity: 0; } to { transform: translateY(0); opacity: 1; } }
 
-/* === SIMULADOR CRUD (FASE 7) === */
+
 .crud-flow-area {
     display: flex;
     justify-content: space-between;
@@ -351,74 +351,10 @@
 }
 .arrow i { font-size: 2rem; }
 
-/* Animaciones de flujo */
+
 .arrow.active-get { color: #ff9800; opacity: 1; animation: moveLeft 1s infinite alternate; }
 .arrow.active-post { color: #4caf50; opacity: 1; animation: moveRight 1s infinite alternate; }
 
 @keyframes moveLeft { from { transform: translateX(5px); } to { transform: translateX(-5px); } }
 @keyframes moveRight { from { transform: translateX(-5px); } to { transform: translateX(5px); } }
 .text-center { text-align: center; }
-
-/* === SIMULADOR DE IDE (FASE 8) === */
-.ide-simulator {
-    border-radius: 8px;
-    overflow: hidden;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.3);
-    border: 1px solid #333;
-    font-family: 'Consolas', 'Courier New', monospace;
-}
-
-.ide-header {
-    background-color: #1e1e1e; padding: 10px 15px;
-    display: flex; align-items: center; gap: 8px;
-    border-bottom: 1px solid #333;
-}
-.ide-header .dot { width: 12px; height: 12px; border-radius: 50%; display: inline-block; }
-.ide-title { color: #cccccc; font-size: 0.85rem; margin-left: 10px; font-family: 'Segoe UI', sans-serif; }
-
-.ide-body {
-    display: flex;
-    background-color: #1e1e1e;
-    height: 400px;
-}
-
-.ide-sidebar {
-    width: 250px;
-    background-color: #252526;
-    border-right: 1px solid #333;
-    padding: 15px 0;
-    color: #cccccc;
-    font-size: 0.9rem;
-    overflow-y: auto;
-}
-
-.ide-folder {
-    padding: 5px 15px; font-weight: bold; color: #fff; font-family: 'Segoe UI', sans-serif;
-}
-.ide-folder i { font-size: 0.8rem; margin-right: 5px; }
-
-.ide-file {
-    padding: 5px 15px 5px 30px; cursor: pointer; transition: 0.2s; font-family: 'Segoe UI', sans-serif;
-}
-.ide-file:hover { background-color: #2a2d2e; }
-.ide-file.active { background-color: #37373d; color: #fff; border-left: 3px solid #007acc; }
-
-.ide-content {
-    flex: 1;
-    background-color: #1e1e1e;
-    padding: 20px;
-    overflow-y: auto;
-    color: #d4d4d4;
-    font-size: 0.95rem;
-}
-
-.code-file { display: none; animation: fadeIn 0.3s; }
-.code-file.active { display: block; }
-.code-file pre { margin: 0; }
-
-/* Colores de Syntax Highlighting (Estilo VS Code Dark) */
-.text-primary { color: #569cd6; } /* Azul clave */
-.text-success { color: #4ec9b0; } /* Verde clases */
-.text-warning { color: #dcdcaa; } /* Amarillo variables/Razor */
-.text-info { color: #9cdcfe; }    /* Celeste propiedades */
-.text-secondary { color: #6a9955; font-style: italic; } /* Verde comentarios */

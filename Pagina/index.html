@@ -522,10 +522,7 @@
                 </div>
             </div>
 
-            <div class="alert alert-warning shadow-sm border-start border-warning border-4">
-                <strong>[ESPACIO PARA CAPTURA]</strong><br>
-                Estudiante: Toma una captura de la pantalla del Administrador de Paquetes NuGet donde se vea el paquete ClosedXML con el check verde indicando que ya está "Instalado".
-            </div>
+            
 
            
             <h3 class="text-dark border-bottom pb-2 mt-4">3. Explicación del "Bucle Mágico" para llenar el Excel</h3>
@@ -795,278 +792,1534 @@
       <section id="fase8" class="content-section">
         <h1>Fase 8: Proyecto Integrador (HotelAdmin)</h1>
         <p>
-          Toda la teoría y la práctica culminan aquí. En esta sección puedes
-          explorar el código fuente <strong>COMPLETO Y REAL</strong> del sistema
-          de reservas de hotel que hemos construido a lo largo de las 8 fases.
-        </p>
-        <p>
-          Navega por las pestañas del explorador de archivos para estudiar cómo
-          se estructuran profesionalmente los Controladores, las Vistas con
-          Razor y la exportación a Excel.
+          Toda la teoría y la práctica culminan aquí. En esta sección te explicamos paso a paso cómo ensamblar el proyecto MVC completo desde cero, y posteriormente podrás explorar su código fuente <strong>COMPLETO Y REAL</strong>.
         </p>
 
-        <div class="ide-simulator mt-4">
-          <div class="ide-header">
-            <span class="dot red"></span><span class="dot yellow"></span
-            ><span class="dot green"></span>
-            <span class="ide-title">Visual Studio Code - HotelAdmin MVC</span>
-          </div>
-
-          <div class="ide-body">
-            <div class="ide-sidebar">
-              <div class="ide-folder">
-                <i class="fas fa-chevron-down"></i> Controllers
-              </div>
-              <div class="ide-file active" data-file="reservas-ctrl">
-                <i class="fab fa-cuttlefish text-info"></i>
-                ReservasController.cs
-              </div>
-              <div class="ide-file" data-file="reportes-ctrl">
-                <i class="fab fa-cuttlefish text-info"></i>
-                ReportesController.cs
-              </div>
-
-              <div class="ide-folder mt-3">
-                <i class="fas fa-chevron-down"></i> Views/Reservas
-              </div>
-              <div class="ide-file" data-file="index-cshtml">
-                <i class="fas fa-code text-warning"></i> Index.cshtml
-              </div>
-              <div class="ide-file" data-file="edit-cshtml">
-                <i class="fas fa-code text-warning"></i> Edit.cshtml
-              </div>
+        <div class="container mt-4 mb-5" id="fase8-content">
+          <div class="card shadow-sm border-0">
+            <div class="card-header bg-dark text-white">
+              <h3 class="mb-0"><i class="fas fa-tools"></i> Paso a Paso: Ensamblaje del Proyecto MVC</h3>
             </div>
+            <div class="card-body p-4">
+              <p>Para construir el sistema de reservas que analizarás en el simulador interactivo, el flujo de desarrollo debe seguir este estricto orden lógico:</p>
+              
+              <ul class="list-group list-group-flush mt-3">
+                <li class="list-group-item">
+                  <h5 class="text-primary"><i class="fas fa-folder-plus"></i> 1. Creación en Visual Studio</h5>
+                  <div class="card shadow-sm border-0 mb-4" style="border: 1px solid var(--border) !important;">
+    
+    <div class="card-body p-4">
+        <p class="mb-4 text-muted">Vamos a crear nuestro espacio de trabajo oficial. Sigan estos clics al pie de la letra para no perderse:</p>
+        
+        <ol class="list-group list-group-numbered list-group-flush">
+            <li class="list-group-item border-0 pb-2 bg-transparent">
+                Abran <strong>Visual Studio</strong> en su computadora.
+            </li>
+            <li class="list-group-item border-0 pb-2 bg-transparent">
+                En la ventana inicial de bienvenida, hagan clic en el botón inferior derecho que dice <strong>Crear un proyecto nuevo</strong>.
+            </li>
+            <li class="list-group-item border-0 pb-2 bg-transparent">
+                En la barra de búsqueda superior, escriban exactamente: <br>
+                <code class="d-inline-block mt-2 mb-2 p-2 rounded shadow-sm text-dark bg-white" style="border: 1px solid var(--border);">Aplicación web de ASP.NET Core (Modelo-Vista-Controlador)</code>
+                
+                <div class="alert mt-2 mb-2 p-3 border-0 rounded" style="background-color: rgba(212, 175, 55, 0.1); border-left: 4px solid var(--accent) !important;">
+                    <i class="fas fa-exclamation-triangle mr-2" style="color: var(--accent);"></i> 
+                    <strong>Nota clave:</strong> Asegúrense de elegir la opción que tiene el ícono de <strong>C# verde</strong>, no la de Visual Basic, y que el título diga explícitamente "Modelo-Vista-Controlador".
+                </div>
+            </li>
+            <li class="list-group-item border-0 pb-2 bg-transparent">
+                Seleccionen la opción correcta y hagan clic en <strong>Siguiente</strong>.
+            </li>
+            <li class="list-group-item border-0 pb-2 bg-transparent">
+                En <em>Nombre del proyecto</em>, vamos a bautizar nuestro sistema como: <strong class="text-primary">HotelAdmin</strong>.
+            </li>
+            <li class="list-group-item border-0 pb-2 bg-transparent">
+                En <em>Ubicación</em>, elijan una carpeta donde guarden sus trabajos de la universidad. Hagan clic en <strong>Siguiente</strong>.
+            </li>
+            <li class="list-group-item border-0 pb-2 bg-transparent">
+                En la pantalla de <em>Información adicional</em>, asegúrense de que el Framework seleccionado sea <strong>.NET 8.0 (Compatibilidad a largo plazo)</strong> o <strong>.NET 10.0</strong>. Dejen el tipo de autenticación en "Ninguno" y verifiquen que la casilla "Configurar para HTTPS" esté marcada. Finalmente, hagan clic en <strong>Crear</strong>.
+            </li>
+        </ol>
+    </div>
+</div>
+                </li>
+                <li class="list-group-item">
+                  <h5 class="text-primary"><i class="fas fa-cubes"></i> 2. Definición de Modelos (La Cocina)</h5>
+                  <p class="mb-1">Navega a la carpeta <strong>Models</strong> y crea las clases base como <code>Funcionario.cs</code> y <code>Reserva.cs</code>. Es fundamental establecer las propiedades <code>[Key]</code> y las relaciones de llave foránea para vincular empleados con reservas.</p>
+                  <div class="container mt-4 mb-5">
+  <h3 class="text-dark border-bottom pb-2"><i class="fas fa-folder font-weight-bold text-warning"></i> Carpeta: Models</h3>
+  <p>Crea las siguientes clases dentro de la carpeta <strong>Models</strong> de tu proyecto para definir la estructura de datos y las reglas del negocio:</p>
 
-            <div class="ide-content">
-              <div id="reservas-ctrl" class="code-file active">
-                <pre>
-                    <code class="language-csharp">using Microsoft.AspNetCore.Mvc;
-                    using Microsoft.AspNetCore.Mvc.Rendering;
-                    using Microsoft.EntityFrameworkCore;
-                    using HotelAdmin.Data;
-                    using HotelAdmin.Models;
+  <div class="card shadow-sm border-0 mb-4">
+    <div class="card-header bg-dark text-white py-2 d-flex align-items-center">
+      <i class="fas fa-file-code text-info mr-2"></i>
+      <span class="font-weight-bold">Ruta del archivo:</span>&nbsp;<code>HotelAdmin/Models/Enums.cs</code>
+    </div>
+    <div class="card-body p-0">
+      <pre class="m-0" style="background-color: #1e1e1e; color: #d4d4d4; padding: 15px; border-radius: 0 0 4px 4px;"><code class="language-csharp">namespace HotelAdmin.Models
+{
+    public enum TipoHabitacion
+    {
+        Simple,
+        Doble,
+        Suite,
+        SuiteEjecutiva
+    }
 
-                    namespace HotelAdmin.Controllers
+    public enum EstadoReserva
+    {
+        Pendiente,
+        Confirmada,
+        Cancelada
+    }
+}</code></pre>
+    </div>
+  </div>
+
+  <div class="card shadow-sm border-0 mb-4">
+    <div class="card-header bg-dark text-white py-2 d-flex align-items-center">
+      <i class="fas fa-file-code text-info mr-2"></i>
+      <span class="font-weight-bold">Ruta del archivo:</span>&nbsp;<code>HotelAdmin/Models/ApplicationUser.cs</code>
+    </div>
+    <div class="card-body p-0">
+      <pre class="m-0" style="background-color: #1e1e1e; color: #d4d4d4; padding: 15px; border-radius: 0 0 4px 4px;"><code class="language-csharp">using Microsoft.AspNetCore.Identity;
+
+namespace HotelAdmin.Models
+{
+    public class ApplicationUser : IdentityUser
+    {
+        public string NombreCompleto { get; set; } = string.Empty;
+    }
+}
+      </code></pre>
+    </div>
+  </div>
+
+  <div class="card shadow-sm border-0 mb-4">
+    <div class="card-header bg-dark text-white py-2 d-flex align-items-center">
+      <i class="fas fa-file-code text-info mr-2"></i>
+      <span class="font-weight-bold">Ruta del archivo:</span>&nbsp;<code>HotelAdmin/Models/Funcionario.cs</code>
+    </div>
+    <div class="card-body p-0">
+      <pre class="m-0" style="background-color: #1e1e1e; color: #d4d4d4; padding: 15px; border-radius: 0 0 4px 4px;"><code class="language-csharp">using System.ComponentModel.DataAnnotations;
+
+namespace HotelAdmin.Models
+{
+    public class Funcionario
+    {
+        [Key]
+        public int Id { get; set; }
+
+        [Required]
+        public string CodigoEmpleado { get; set; } = string.Empty;
+
+        [Required]
+        public string Nombre { get; set; } = string.Empty;
+
+        [Required]
+        public string Rol { get; set; } = string.Empty;
+
+        public string Email { get; set; } = string.Empty;
+        public string Telefono { get; set; } = string.Empty;
+
+        public virtual ICollection&lt;Reserva&gt; Reservas { get; set; } = new List&lt;Reserva&gt;();
+    }
+}</code></pre>
+    </div>
+  </div>
+
+  <div class="card shadow-sm border-0 mb-4">
+    <div class="card-header bg-dark text-white py-2 d-flex align-items-center">
+      <i class="fas fa-file-code text-info mr-2"></i>
+      <span class="font-weight-bold">Ruta del archivo:</span>&nbsp;<code>HotelAdmin/Models/Reserva.cs</code>
+    </div>
+    <div class="card-body p-0">
+      <pre class="m-0" style="background-color: #1e1e1e; color: #d4d4d4; padding: 15px; border-radius: 0 0 4px 4px;"><code class="language-csharp">using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
+
+namespace HotelAdmin.Models
+{
+    public class Reserva
+    {
+        [Key]
+        public int Id { get; set; }
+
+        [Required(ErrorMessage = "El nombre del huésped es obligatorio")]
+        public string NombreHuesped { get; set; } = string.Empty;
+
+        [Required]
+        public DateTime CheckIn { get; set; }
+
+        [Required]
+        public DateTime CheckOut { get; set; }
+
+        [Required]
+        public TipoHabitacion TipoHabitacion { get; set; }
+
+        public EstadoReserva Estado { get; set; } = EstadoReserva.Pendiente;
+
+        [Column(TypeName = "decimal(18,2)")]
+        public decimal PrecioTotal { get; set; }
+
+        [Required(ErrorMessage = "Debe asignar un funcionario a la reserva")]
+        public int FuncionarioId { get; set; }
+
+        [ForeignKey("FuncionarioId")]
+        public virtual Funcionario? Funcionario { get; set; }
+    }
+}</code></pre>
+    </div>
+  </div>
+
+  <div class="card shadow-sm border-0 mb-4">
+    <div class="card-header bg-dark text-white py-2 d-flex align-items-center">
+      <i class="fas fa-file-code text-info mr-2"></i>
+      <span class="font-weight-bold">Ruta del archivo:</span>&nbsp;<code>HotelAdmin/Models/DashboardViewModel.cs</code>
+    </div>
+    <div class="card-body p-0">
+      <pre class="m-0" style="background-color: #1e1e1e; color: #d4d4d4; padding: 15px; border-radius: 0 0 4px 4px;"><code class="language-csharp">namespace HotelAdmin.Models
+{
+    public class DashboardViewModel
+    {
+        public int ReservasActivas { get; set; }
+        public int HuespedesHoy { get; set; }
+        public List&lt;Reserva&gt; ReservasRecientes { get; set; } = new List&lt;Reserva&gt;();
+    }
+}</code></pre>
+    </div>
+  </div>
+
+  <div class="card shadow-sm border-0 mb-4">
+    <div class="card-header bg-dark text-white py-2 d-flex align-items-center">
+      <i class="fas fa-file-code text-info mr-2"></i>
+      <span class="font-weight-bold">Ruta del archivo:</span>&nbsp;<code>HotelAdmin/Models/ReportesViewModel.cs</code>
+    </div>
+    <div class="card-body p-0">
+      <pre class="m-0" style="background-color: #1e1e1e; color: #d4d4d4; padding: 15px; border-radius: 0 0 4px 4px;"><code class="language-csharp">namespace HotelAdmin.Models
+{
+    public class ReportesViewModel
+    {
+        public string Periodo { get; set; } = "month";
+        public int TotalReservas { get; set; }
+        public decimal IngresosTotales { get; set; }
+        public int TotalVentasFuncionarios { get; set; }
+        public double PromedioVentasFuncionario { get; set; }
+    }
+}</code></pre>
+    </div>
+  </div>
+
+  <div class="card shadow-sm border-0 mb-4">
+    <div class="card-header bg-dark text-white py-2 d-flex align-items-center">
+      <i class="fas fa-file-code text-info mr-2"></i>
+      <span class="font-weight-bold">Ruta del archivo:</span>&nbsp;<code>HotelAdmin/Models/ErrorViewModel.cs</code>
+    </div>
+    <div class="card-body p-0">
+      <pre class="m-0" style="background-color: #1e1e1e; color: #d4d4d4; padding: 15px; border-radius: 0 0 4px 4px;"><code class="language-csharp">namespace HotelAdmin.Models
+{
+    public class ErrorViewModel
+    {
+        public string? RequestId { get; set; }
+
+        public bool ShowRequestId => !string.IsNullOrEmpty(RequestId);
+    }
+}</code></pre>
+    </div>
+  </div>
+</div>
+                </li>
+                <li class="list-group-item">
+                  <h5 class="text-primary"><i class="fas fa-database"></i> 3. Conexión a Base de Datos (Entity Framework)</h5>
+                  <p class="mb-1">Instala los paquetes NuGet <code>Microsoft.EntityFrameworkCore.SqlServer</code> y 
+                    <code>Tools</code>, en la parte superior ve a 
+                    Herramientas > Administrador de paquetes NuGet > Consola del Administrador de paquetes y ejecuta el comando 
+                    <code>add-migration Initial</code> para generar la migración inicial. Luego, ejecuta <code>update-database</code> 
+                    para crear la base de datos física en SQL Server. Esto establecerá el puente entre tu código y la base de datos.</p>
+                  <div class="container mt-4 mb-5">
+  <h3 class="text-dark border-bottom pb-2"><i class="fas fa-database font-weight-bold text-success"></i> Carpeta: Data y Configuración</h3>
+  <p>En esta sección configuramos el "puente" entre nuestro código y la base de datos SQL Server utilizando Entity Framework Core, además de definir las credenciales de conexión maestras.</p>
+
+  <div class="card shadow-sm border-0 mb-4">
+    <div class="card-header bg-dark text-white py-2 d-flex align-items-center">
+      <i class="fab fa-cuttlefish text-info mr-2"></i>
+      <span class="font-weight-bold">Ruta del archivo:</span>&nbsp;<code>HotelAdmin/Data/ApplicationDbContext.cs</code>
+    </div>
+    <div class="card-body p-0">
+      <pre class="m-0" style="background-color: #1e1e1e; color: #d4d4d4; padding: 15px; border-radius: 0 0 4px 4px;"><code class="language-csharp">using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore;
+using HotelAdmin.Models;
+
+namespace HotelAdmin.Data
+{
+    public class ApplicationDbContext : IdentityDbContext&lt;ApplicationUser&gt;
+    {
+        public ApplicationDbContext(DbContextOptions&lt;ApplicationDbContext&gt; options)
+            : base(options)
+        {
+        }
+
+        public DbSet&lt;Funcionario&gt; Funcionarios { get; set; }
+        public DbSet&lt;Reserva&gt; Reservas { get; set; }
+
+        protected override void OnModelCreating(ModelBuilder builder)
+        {
+            base.OnModelCreating(builder);
+        }
+    }
+}</code></pre>
+    </div>
+  </div>
+
+  <div class="card shadow-sm border-0 mb-4">
+    <div class="card-header bg-dark text-white py-2 d-flex align-items-center">
+      <i class="fas fa-file-code text-warning mr-2"></i>
+      <span class="font-weight-bold">Ruta del archivo:</span>&nbsp;<code>HotelAdmin/appsettings.json</code>
+    </div>
+    <div class="card-body p-0">
+      <pre class="m-0" style="background-color: #1e1e1e; color: #d4d4d4; padding: 15px; border-radius: 0 0 4px 4px;"><code class="language-json">{
+  "ConnectionStrings": {
+    "DefaultConnection": "Server=(localdb)\\mssqllocaldb;Database=HotelAdminDB;Trusted_Connection=True;MultipleActiveResultSets=true"
+  },
+  "Logging": {
+    "LogLevel": {
+      "Default": "Information",
+      "Microsoft.AspNetCore": "Warning"
+    }
+  },
+  "AllowedHosts": "*"
+}</code></pre>
+    </div>
+  </div>
+</div>
+                </li>
+                <li class="list-group-item">
+                  <h5 class="text-primary"><i class="fas fa-brain"></i> 4. Controladores (El Cerebro Matemático)</h5>
+                  <p class="mb-1">Genera controladores como <code>ReservasController.cs</code>. Implementa los verbos <strong>GET</strong> para consultar la base de datos y <strong>POST</strong> para recibir datos de formularios. Recuerda que la lógica de cálculo de precios siempre debe ejecutarse aquí, por seguridad.</p>
+                  <div class="container mt-4 mb-5">
+  <h3 class="text-dark border-bottom pb-2"><i class="fas fa-folder font-weight-bold text-warning"></i> Carpeta: Controllers</h3>
+  <p>Los controladores son el "cerebro" de la aplicación. Se encargan de recibir las peticiones del usuario, procesar la lógica con la base de datos y devolver la vista correspondiente. Crea estos archivos en la carpeta <strong>Controllers</strong>:</p>
+
+  <div class="card shadow-sm border-0 mb-4">
+    <div class="card-header bg-dark text-white py-2 d-flex align-items-center">
+      <i class="fab fa-cuttlefish text-info mr-2"></i>
+      <span class="font-weight-bold">Ruta del archivo:</span>&nbsp;<code>HotelAdmin/Controllers/AccountController.cs</code>
+    </div>
+    <div class="card-body p-0">
+      <pre class="m-0" style="background-color: #1e1e1e; color: #d4d4d4; padding: 15px; border-radius: 0 0 4px 4px;"><code class="language-csharp">using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Mvc;
+using HotelAdmin.Models;
+
+namespace HotelAdmin.Controllers
+{
+    public class AccountController : Controller
+    {
+        private readonly SignInManager&lt;ApplicationUser&gt; _signInManager;
+        private readonly UserManager&lt;ApplicationUser&gt; _userManager;
+
+        public AccountController(SignInManager&lt;ApplicationUser&gt; signInManager, UserManager&lt;ApplicationUser&gt; userManager)
+        {
+            _signInManager = signInManager;
+            _userManager = userManager;
+        }
+
+        [HttpGet]
+        public IActionResult Login()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public async Task&lt;IActionResult&gt; Login(string username, string password)
+        {
+            if (string.IsNullOrEmpty(username) || string.IsNullOrEmpty(password))
+                return View();
+
+            var user = await _userManager.FindByNameAsync(username);
+            if (user == null && username == "admin")
+            {
+                user = new ApplicationUser { UserName = "admin", NombreCompleto = "Administrador" };
+                await _userManager.CreateAsync(user, "Admin123!");
+            }
+
+            var result = await _signInManager.PasswordSignInAsync(username, password, false, false);
+            if (result.Succeeded)
+                return RedirectToAction("Index", "Dashboard");
+
+            ModelState.AddModelError("", "Intento de inicio de sesión no válido.");
+            return View();
+        }
+
+        [HttpPost]
+        public async Task&lt;IActionResult&gt; Logout()
+        {
+            await _signInManager.SignOutAsync();
+            return RedirectToAction("Login");
+        }
+    }
+}</code></pre>
+    </div>
+  </div>
+
+  <div class="card shadow-sm border-0 mb-4">
+    <div class="card-header bg-dark text-white py-2 d-flex align-items-center">
+      <i class="fab fa-cuttlefish text-info mr-2"></i>
+      <span class="font-weight-bold">Ruta del archivo:</span>&nbsp;<code>HotelAdmin/Controllers/DashboardController.cs</code>
+    </div>
+    <div class="card-body p-0">
+      <pre class="m-0" style="background-color: #1e1e1e; color: #d4d4d4; padding: 15px; border-radius: 0 0 4px 4px;"><code class="language-csharp">using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
+using HotelAdmin.Data;
+using HotelAdmin.Models;
+
+namespace HotelAdmin.Controllers
+{
+    [Authorize]
+    public class DashboardController : Controller
+    {
+        private readonly ApplicationDbContext _context;
+
+        public DashboardController(ApplicationDbContext context)
+        {
+            _context = context;
+        }
+
+        public async Task&lt;IActionResult&gt; Index()
+        {
+            var hoy = DateTime.Today;
+
+            var model = new DashboardViewModel
+            {
+                ReservasActivas = await _context.Reservas
+                    .CountAsync(r =&gt; r.Estado == EstadoReserva.Confirmada && r.CheckOut &gt;= hoy),
+
+                HuespedesHoy = await _context.Reservas
+                    .CountAsync(r =&gt; r.Estado == EstadoReserva.Confirmada && r.CheckIn &lt;= hoy && r.CheckOut &gt;= hoy),
+
+                ReservasRecientes = await _context.Reservas
+                    .OrderByDescending(r =&gt; r.Id)
+                    .Take(5)
+                    .ToListAsync()
+            };
+
+            return View(model);
+        }
+    }
+}</code></pre>
+    </div>
+  </div>
+
+  <div class="card shadow-sm border-0 mb-4">
+    <div class="card-header bg-dark text-white py-2 d-flex align-items-center">
+      <i class="fab fa-cuttlefish text-info mr-2"></i>
+      <span class="font-weight-bold">Ruta del archivo:</span>&nbsp;<code>HotelAdmin/Controllers/FuncionariosController.cs</code>
+    </div>
+    <div class="card-body p-0">
+      <pre class="m-0" style="background-color: #1e1e1e; color: #d4d4d4; padding: 15px; border-radius: 0 0 4px 4px;"><code class="language-csharp">using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
+using HotelAdmin.Data;
+using HotelAdmin.Models;
+
+namespace HotelAdmin.Controllers
+{
+    [Authorize]
+    public class FuncionariosController : Controller
+    {
+        private readonly ApplicationDbContext _context;
+
+        public FuncionariosController(ApplicationDbContext context)
+        {
+            _context = context;
+        }
+
+        public async Task&lt;IActionResult&gt; Index()
+        {
+            var lista = await _context.Funcionarios.Include(f =&gt; f.Reservas).ToListAsync();
+            return View(lista);
+        }
+
+        [HttpPost]
+        public async Task&lt;IActionResult&gt; Create(Funcionario funcionario)
+        {
+            ModelState.Remove("Reservas");
+            funcionario.Email ??= "ventas@hotel.com";
+            funcionario.Telefono ??= "N/A";
+
+            if (ModelState.IsValid)
+            {
+                _context.Add(funcionario);
+                await _context.SaveChangesAsync();
+            }
+            return RedirectToAction(nameof(Index));
+        }
+
+        [HttpPost]
+        public async Task&lt;IActionResult&gt; Delete(int id)
+        {
+            var f = await _context.Funcionarios.FindAsync(id);
+            if (f != null)
+            {
+                _context.Funcionarios.Remove(f);
+                await _context.SaveChangesAsync();
+            }
+            return RedirectToAction(nameof(Index));
+        }
+    }
+}</code></pre>
+    </div>
+  </div>
+
+  <div class="card shadow-sm border-0 mb-4">
+    <div class="card-header bg-dark text-white py-2 d-flex align-items-center">
+      <i class="fab fa-cuttlefish text-info mr-2"></i>
+      <span class="font-weight-bold">Ruta del archivo:</span>&nbsp;<code>HotelAdmin/Controllers/HomeController.cs</code>
+    </div>
+    <div class="card-body p-0">
+      <pre class="m-0" style="background-color: #1e1e1e; color: #d4d4d4; padding: 15px; border-radius: 0 0 4px 4px;"><code class="language-csharp">using HotelAdmin.Models;
+using Microsoft.AspNetCore.Mvc;
+using System.Diagnostics;
+
+namespace HotelAdmin.Controllers
+{
+    public class HomeController : Controller
+    {
+        public IActionResult Index()
+        {
+            return View();
+        }
+
+        public IActionResult Privacy()
+        {
+            return View();
+        }
+
+        [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
+        public IActionResult Error()
+        {
+            return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
+        }
+    }
+}</code></pre>
+    </div>
+  </div>
+
+  <div class="card shadow-sm border-0 mb-4">
+    <div class="card-header bg-dark text-white py-2 d-flex align-items-center">
+      <i class="fab fa-cuttlefish text-info mr-2"></i>
+      <span class="font-weight-bold">Ruta del archivo:</span>&nbsp;<code>HotelAdmin/Controllers/ReportesController.cs</code>
+    </div>
+    <div class="card-body p-0">
+      <pre class="m-0" style="background-color: #1e1e1e; color: #d4d4d4; padding: 15px; border-radius: 0 0 4px 4px;"><code class="language-csharp">using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
+using ClosedXML.Excel;
+using HotelAdmin.Data;
+using HotelAdmin.Models;
+
+namespace HotelAdmin.Controllers
+{
+    [Authorize]
+    public class ReportesController : Controller
+    {
+        private readonly ApplicationDbContext _context;
+
+        public ReportesController(ApplicationDbContext context) =&gt; _context = context;
+
+        public async Task&lt;IActionResult&gt; Index(string periodo = "month")
+        {
+            var hoy = DateTime.Today;
+            DateTime inicio = periodo switch
+            {
+                "week" =&gt; hoy.AddDays(-7),
+                "quarter" =&gt; hoy.AddMonths(-3),
+                "year" =&gt; hoy.AddYears(-1),
+                _ =&gt; hoy.AddMonths(-1)
+            };
+
+            var reservas = await _context.Reservas.Where(r =&gt; r.CheckIn &gt;= inicio && r.CheckIn &lt;= hoy).ToListAsync();
+            var funcionarios = await _context.Funcionarios.Include(f =&gt; f.Reservas).ToListAsync();
+
+            var model = new ReportesViewModel
+            {
+                Periodo = periodo,
+                TotalReservas = reservas.Count,
+                IngresosTotales = reservas.Sum(r =&gt; r.PrecioTotal),
+                TotalVentasFuncionarios = funcionarios.Sum(f =&gt; f.Reservas.Count),
+                PromedioVentasFuncionario = funcionarios.Any() ? funcionarios.Average(f =&gt; f.Reservas.Count) : 0
+            };
+            return View(model);
+        }
+
+        [HttpGet]
+        public async Task&lt;IActionResult&gt; ExportarExcel()
+        {
+            var reservas = await _context.Reservas.Include(r =&gt; r.Funcionario).ToListAsync();
+
+            using (var workbook = new XLWorkbook())
+            {
+                var worksheet = workbook.Worksheets.Add("Reporte de Reservas");
+
+                string[] headers = { "ID Reserva", "Huésped", "Fecha Entrada", "Fecha Salida", "Tipo Habitación", "Estado", "Precio Total", "Funcionario" };
+
+                for (int i = 0; i &lt; headers.Length; i++)
+                {
+                    var cell = worksheet.Cell(1, i + 1);
+                    cell.Value = headers[i];
+                    cell.Style.Fill.BackgroundColor = XLColor.FromHtml("#1e3a5f");
+                    cell.Style.Font.FontColor = XLColor.White;
+                    cell.Style.Font.Bold = true;
+                }
+
+                int currentRow = 2;
+                foreach (var r in reservas)
+                {
+                    worksheet.Cell(currentRow, 1).Value = r.Id;
+                    worksheet.Cell(currentRow, 2).Value = r.NombreHuesped;
+                    worksheet.Cell(currentRow, 3).Value = r.CheckIn.ToString("yyyy-MM-dd");
+                    worksheet.Cell(currentRow, 4).Value = r.CheckOut.ToString("yyyy-MM-dd");
+                    worksheet.Cell(currentRow, 5).Value = r.TipoHabitacion.ToString();
+                    worksheet.Cell(currentRow, 6).Value = r.Estado.ToString();
+
+                    worksheet.Cell(currentRow, 7).Value = r.PrecioTotal;
+                    worksheet.Cell(currentRow, 7).Style.NumberFormat.Format = "$ #,##0";
+
+                    worksheet.Cell(currentRow, 8).Value = r.Funcionario?.Nombre ?? "No asignado";
+                    currentRow++;
+                }
+
+                worksheet.Columns().AdjustToContents();
+
+                using (var stream = new MemoryStream())
+                {
+                    workbook.SaveAs(stream);
+                    return File(stream.ToArray(), "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet", $"Reporte_Hotel_{DateTime.Now:yyyyMMdd}.xlsx");
+                }
+            }
+        }
+    }
+}</code></pre>
+    </div>
+  </div>
+
+  <div class="card shadow-sm border-0 mb-4">
+    <div class="card-header bg-dark text-white py-2 d-flex align-items-center">
+      <i class="fab fa-cuttlefish text-info mr-2"></i>
+      <span class="font-weight-bold">Ruta del archivo:</span>&nbsp;<code>HotelAdmin/Controllers/ReservasController.cs</code>
+    </div>
+    <div class="card-body p-0">
+      <pre class="m-0" style="background-color: #1e1e1e; color: #d4d4d4; padding: 15px; border-radius: 0 0 4px 4px;"><code class="language-csharp">using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Rendering;
+using Microsoft.EntityFrameworkCore;
+using HotelAdmin.Data;
+using HotelAdmin.Models;
+
+namespace HotelAdmin.Controllers
+{
+    [Authorize]
+    public class ReservasController : Controller
+    {
+        private readonly ApplicationDbContext _context;
+
+        public ReservasController(ApplicationDbContext context)
+        {
+            _context = context;
+        }
+
+        public async Task&lt;IActionResult&gt; Index()
+        {
+            var reservas = await _context.Reservas.Include(r =&gt; r.Funcionario).ToListAsync();
+            ViewBag.Funcionarios = new SelectList(await _context.Funcionarios.ToListAsync(), "Id", "Nombre");
+            return View(reservas);
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task&lt;IActionResult&gt; Create(Reserva reserva)
+        {
+            ModelState.Remove("Funcionario");
+
+            int dias = (reserva.CheckOut - reserva.CheckIn).Days;
+            if (dias &lt;= 0) dias = 1;
+
+            decimal tarifa = reserva.TipoHabitacion switch
+            {
+                TipoHabitacion.Simple =&gt; 50000,
+                TipoHabitacion.Doble =&gt; 80000,
+                TipoHabitacion.Suite =&gt; 150000,
+                TipoHabitacion.SuiteEjecutiva =&gt; 250000,
+                _ =&gt; 50000
+            };
+
+            reserva.PrecioTotal = tarifa * dias;
+
+            if (ModelState.IsValid)
+            {
+                _context.Add(reserva);
+                await _context.SaveChangesAsync();
+                return RedirectToAction(nameof(Index));
+            }
+
+            ViewBag.Funcionarios = new SelectList(await _context.Funcionarios.ToListAsync(), "Id", "Nombre");
+            return View("Index", await _context.Reservas.Include(r =&gt; r.Funcionario).ToListAsync());
+        }
+
+        public async Task&lt;IActionResult&gt; Edit(int? id)
+        {
+            if (id == null) return NotFound();
+
+            var reserva = await _context.Reservas.FindAsync(id);
+            if (reserva == null) return NotFound();
+
+            ViewBag.Funcionarios = new SelectList(await _context.Funcionarios.ToListAsync(), "Id", "Nombre", reserva.FuncionarioId);
+            return View(reserva);
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task&lt;IActionResult&gt; Edit(int id, Reserva reserva)
+        {
+            if (id != reserva.Id) return NotFound();
+
+            ModelState.Remove("Funcionario"); 
+
+            if (ModelState.IsValid)
+            {
+                try
+                {
+                    int dias = (reserva.CheckOut - reserva.CheckIn).Days;
+                    if (dias &lt;= 0) dias = 1;
+
+                    decimal tarifa = reserva.TipoHabitacion switch
                     {
-                        public class ReservasController : Controller
-                        {
-                            private readonly ApplicationDbContext _context;
+                        TipoHabitacion.Simple =&gt; 50000,
+                        TipoHabitacion.Doble =&gt; 80000,
+                        TipoHabitacion.Suite =&gt; 150000,
+                        TipoHabitacion.SuiteEjecutiva =&gt; 250000,
+                        _ =&gt; 50000
+                    };
+                    reserva.PrecioTotal = tarifa * dias;
 
-                            public ReservasController(ApplicationDbContext context)
-                            {
-                                _context = context;
-                            }
+                    _context.Update(reserva);
+                    await _context.SaveChangesAsync();
+                }
+                catch (DbUpdateConcurrencyException)
+                {
+                    if (!ReservaExists(reserva.Id)) return NotFound();
+                    else throw;
+                }
+                return RedirectToAction(nameof(Index));
+            }
 
-                            // 1. GET: Mostrar la tabla principal
-                            [HttpGet]
-                            public async Task&lt;IActionResult&gt; Index(string searchString)
-                            {
-                                var reservasQuery = _context.Reservas.Include(r =&gt; r.Funcionario).AsQueryable();
+            ViewBag.Funcionarios = new SelectList(await _context.Funcionarios.ToListAsync(), "Id", "Nombre", reserva.FuncionarioId);
+            return View(reserva);
+        }
 
-                                if (!string.IsNullOrEmpty(searchString)) {
-                                    reservasQuery = reservasQuery.Where(r =&gt; r.NombreHuesped.Contains(searchString));
-                                }
+        [HttpPost]
+        public async Task&lt;IActionResult&gt; Delete(int id)
+        {
+            var reserva = await _context.Reservas.FindAsync(id);
+            if (reserva != null)
+            {
+                _context.Reservas.Remove(reserva);
+                await _context.SaveChangesAsync();
+            }
+            return RedirectToAction(nameof(Index));
+        }
 
-                                ViewBag.Funcionarios = new SelectList(await _context.Funcionarios.ToListAsync(), "Id", "Nombre");
-                                ViewData["FiltroActual"] = searchString;
+        private bool ReservaExists(int id) =&gt; _context.Reservas.Any(e =&gt; e.Id == id);
+    }
+}</code></pre>
+    </div>
+  </div>
 
-                                return View(await reservasQuery.ToListAsync());
-                            }
+</div>
+                </li>
+                <li class="list-group-item">
+                  <h5 class="text-primary"><i class="fas fa-desktop"></i> 5. Vistas con Razor (El Comedor)</h5>
+                  <p class="mb-1">Dentro de la carpeta <strong>Views</strong>, estructura los archivos <code>.cshtml</code>. Utiliza sintaxis <code>@</code> (Razor) junto con clases de Bootstrap para imprimir tablas iterativas (con <code>foreach</code>) y diseñar interfaces atractivas para el usuario.</p>
+                  <div class="container mt-4 mb-5">
+  <h3 class="text-dark border-bottom pb-2"><i class="fas fa-desktop font-weight-bold text-primary"></i> Carpeta: Views (Vistas con Razor)</h3>
+  <p>Las Vistas son la interfaz gráfica que ve el usuario. Usamos la tecnología <strong>Razor</strong> para inyectar los datos del Modelo directamente en nuestro diseño HTML. Crea la siguiente estructura de carpetas y archivos dentro de <strong>Views</strong>:</p>
 
-                            // 2. POST: Crear nueva reserva con LÓGICA MATEMÁTICA
-                            [HttpPost]
-                            [ValidateAntiForgeryToken]
-                            public async Task&lt;IActionResult&gt; Create(Reserva reserva)
-                            {
-                                ModelState.Remove("Funcionario");
-
-                                int dias = (reserva.CheckOut - reserva.CheckIn).Days;
-                                if (dias &lt;= 0) dias = 1;
-
-                                decimal tarifa = reserva.TipoHabitacion switch {
-                                    TipoHabitacion.Simple =&gt; 50000,
-                                    TipoHabitacion.Doble =&gt; 80000,
-                                    TipoHabitacion.Suite =&gt; 150000,
-                                    TipoHabitacion.SuiteEjecutiva =&gt; 250000,
-                                    _ =&gt; 50000 
-                                };
-
-                                reserva.PrecioTotal = tarifa * dias;
-                                reserva.Estado = EstadoReserva.Confirmada;
-
-                                if (ModelState.IsValid)
-                                {
-                                    _context.Add(reserva);
-                                    await _context.SaveChangesAsync();
-                                    TempData["MensajeExito"] = "La reserva se ha registrado correctamente.";
-                                    return RedirectToAction(nameof(Index));
-                                }
-
-                                return View("Index", await _context.Reservas.Include(r =&gt; r.Funcionario).ToListAsync());
-                            }
-
-                            // 3. POST: Eliminar reserva
-                            [HttpPost]
-                            public async Task&lt;IActionResult&gt; Delete(int id)
-                            {
-                                var reserva = await _context.Reservas.FindAsync(id);
-                                if (reserva != null) 
-                                {
-                                    _context.Reservas.Remove(reserva);
-                                    await _context.SaveChangesAsync();
-                                    TempData["MensajeError"] = "La reserva fue eliminada del sistema.";
-                                }
-                                return RedirectToAction(nameof(Index));
-                            }
-                        }
-                    }</code>
-                </pre>
-              </div>
-
-              <div id="reportes-ctrl" class="code-file">
-                <pre><code class="language-csharp">using Microsoft.AspNetCore.Mvc;
-                    using Microsoft.EntityFrameworkCore;
-                    using ClosedXML.Excel;
-                    using HotelAdmin.Data;
-
-                    namespace HotelAdmin.Controllers
-                    {
-                        public class ReportesController : Controller
-                        {
-                            private readonly ApplicationDbContext _context;
-
-                            public ReportesController(ApplicationDbContext context) { _context = context; }
-
-                            [HttpGet]
-                            public async Task&lt;IActionResult&gt; ExportarExcel()
-                            {
-                                var reservas = await _context.Reservas.Include(r =&gt; r.Funcionario).ToListAsync();
-
-                                if (reservas == null || reservas.Count == 0) {
-                                    TempData["MensajeError"] = "No hay datos para exportar.";
-                                    return RedirectToAction("Index", "Reservas"); 
-                                }
-
-                                using (var workbook = new XLWorkbook())
-                                {
-                                    var worksheet = workbook.Worksheets.Add("Reporte de Reservas");
-                                    string[] headers = { "ID Reserva", "Huésped", "Precio Total", "Vendedor" };
-                                    
-                                    for (int i = 0; i &lt; headers.Length; i++) {
-                                        var cell = worksheet.Cell(1, i + 1); 
-                                        cell.Value = headers[i];
-                                        cell.Style.Fill.BackgroundColor = XLColor.FromHtml("#1e3a5f");
-                                        cell.Style.Font.FontColor = XLColor.White;
-                                    }
-
-                                    int currentRow = 2; 
-                                    foreach (var r in reservas)
-                                    {
-                                        worksheet.Cell(currentRow, 1).Value = r.Id;
-                                        worksheet.Cell(currentRow, 2).Value = r.NombreHuesped;
-                                        worksheet.Cell(currentRow, 3).Value = r.PrecioTotal;
-                                        worksheet.Cell(currentRow, 3).Style.NumberFormat.Format = "$ #,##0";
-                                        worksheet.Cell(currentRow, 4).Value = r.Funcionario?.Nombre ?? "N/A";
-                                        currentRow++; 
-                                    }
-
-                                    worksheet.Columns().AdjustToContents();
-
-                                    using (var stream = new MemoryStream())
-                                    {
-                                        workbook.SaveAs(stream);
-                                        var content = stream.ToArray();
-                                        return File(content, "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet", "Reporte_Hotel.xlsx");
-                                    }
-                                }
-                            }
-                        }
-                    }</code>
-                </pre>
-              </div>
-
-              <div id="index-cshtml" class="code-file">
-                <pre><code class="language-html">@model IEnumerable&lt;HotelAdmin.Models.Reserva&gt;
-
-                    &lt;div class="container-fluid"&gt;
-                        &lt;h2 class="text-primary"&gt;Gestión de Reservas&lt;/h2&gt;
-
-                        &lt;!-- BUSCADOR --&gt;
-                        &lt;form asp-action="Index" method="get" class="d-flex w-50 mb-4"&gt;
-                            &lt;input type="text" name="searchString" class="form-control" value="@ViewData["FiltroActual"]" /&gt;
-                            &lt;button type="submit" class="btn btn-secondary"&gt;Buscar&lt;/button&gt;
-                        &lt;/form&gt;
-
-                        &lt;!-- TABLA DE DATOS --&gt;
-                        &lt;table class="table table-hover"&gt;
-                            &lt;thead class="table-light"&gt;
-                                &lt;tr&gt;
-                                    &lt;th&gt;Huésped&lt;/th&gt;
-                                    &lt;th&gt;Vendedor&lt;/th&gt;
-                                    &lt;th&gt;Precio Total&lt;/th&gt;
-                                    &lt;th&gt;Acciones&lt;/th&gt;
-                                &lt;/tr&gt;
-                            &lt;/thead&gt;
-                            &lt;tbody&gt;
-                                @foreach (var item in Model)
-                                {
-                                    &lt;tr&gt;
-                                        &lt;td&gt;@item.NombreHuesped&lt;/td&gt;
-                                        &lt;td&gt;@(item.Funcionario?.Nombre ?? "Sin asignar")&lt;/td&gt;
-                                        &lt;td class="text-success fw-bold"&gt;@item.PrecioTotal.ToString("C0")&lt;/td&gt;
-                                        &lt;td&gt;
-                                            &lt;a asp-action="Edit" asp-route-id="@item.Id" class="btn btn-primary btn-sm"&gt;Editar&lt;/a&gt;
-                                            &lt;form asp-action="Delete" asp-route-id="@item.Id" method="post" class="d-inline"&gt;
-                                                &lt;button type="submit" class="btn btn-danger btn-sm"&gt;Borrar&lt;/button&gt;
-                                            &lt;/form&gt;
-                                        &lt;/td&gt;
-                                    &lt;/tr&gt;
-                                }
-                            &lt;/tbody&gt;
-                        &lt;/table&gt;
-                    &lt;/div&gt;</code>
-                </pre>
-              </div>
-
-              <div id="edit-cshtml" class="code-file">
-                <pre><code class="language-html">@model HotelAdmin.Models.Reserva
-
-                    &lt;h2&gt;Modificar Reserva #@Model.Id&lt;/h2&gt;
-
-                    &lt;form asp-action="Edit" method="post"&gt;
-                        &lt;!-- CAMPO OCULTO (VITAL) --&gt;
-                        &lt;input type="hidden" asp-for="Id" /&gt;
-                                
-                        &lt;div class="row"&gt;
-                            &lt;div class="col-md-6"&gt;
-                                &lt;label&gt;Nombre del Huésped&lt;/label&gt;
-                                &lt;input asp-for="NombreHuesped" class="form-control" required /&gt;
-                            &lt;/div&gt;
-                                    
-                            &lt;div class="col-md-6"&gt;
-                                &lt;label&gt;Funcionario Responsable&lt;/label&gt;
-                                &lt;select asp-for="FuncionarioId" class="form-select" asp-items="ViewBag.Funcionarios" required&gt;&lt;/select&gt;
-                            &lt;/div&gt;
-
-                            &lt;div class="col-md-6"&gt;
-                                &lt;label&gt;Check-In&lt;/label&gt;
-                                &lt;input asp-for="CheckIn" type="date" class="form-control" required /&gt;
-                            &lt;/div&gt;
-
-                            &lt;div class="col-md-6"&gt;
-                                &lt;label&gt;Check-Out&lt;/label&gt;
-                                &lt;input asp-for="CheckOut" type="date" class="form-control" required /&gt;
-                            &lt;/div&gt;
+  <div class="card shadow-sm border-0 mb-4">
+    <div class="card-header bg-dark text-white py-2 d-flex align-items-center">
+      <i class="fab fa-html5 text-warning mr-2"></i>
+      <span class="font-weight-bold">Ruta del archivo:</span>&nbsp;<code>HotelAdmin/Views/Shared/_Layout.cshtml</code>
+    </div>
+    <div class="card-body p-0">
+      <pre class="m-0" style="background-color: #1e1e1e; color: #d4d4d4; padding: 15px; border-radius: 0 0 4px 4px; max-height: 400px; overflow-y: auto;"><code class="language-html">&lt;!DOCTYPE html&gt;
+&lt;html lang="es"&gt;
+&lt;head&gt;
+    &lt;meta charset="utf-8" /&gt;
+    &lt;meta name="viewport" content="width=device-width, initial-scale=1.0" /&gt;
+    &lt;title&gt;@ViewData["Title"] - Hotel Admin&lt;/title&gt;
+    &lt;link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" /&gt;
+    &lt;link rel="stylesheet" href="~/css/site.css" asp-append-version="true" /&gt;
+    &lt;link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" /&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    @if (User.Identity.IsAuthenticated)
+    {
+        &lt;div class="wrapper"&gt;
+            &lt;aside class="sidebar"&gt;
+                &lt;div class="sidebar-logo"&gt;
+                    &lt;div class="d-flex align-items-center gap-3"&gt;
+                        &lt;div class="logo-icon"&gt;
+                            &lt;i class="fas fa-hotel fa-lg"&gt;&lt;/i&gt;
                         &lt;/div&gt;
+                        &lt;div&gt;
+                            &lt;h6 class="mb-0 fw-bold"&gt;Hotel Admin&lt;/h6&gt;
+                            &lt;small class="opacity-75" style="font-size: 10px;"&gt;Panel de Control&lt;/small&gt;
+                        &lt;/div&gt;
+                    &lt;/div&gt;
+                &lt;/div&gt;
 
-                        &lt;button type="submit" class="btn btn-primary mt-3"&gt;Guardar Cambios&lt;/button&gt;
+                &lt;nav class="nav-menu"&gt;
+                    &lt;a href="/Dashboard" class="nav-link-custom @(ViewContext.RouteData.Values["Controller"]?.ToString() == "Dashboard" ? "active" : "")"&gt;
+                        &lt;i class="fas fa-chart-line"&gt;&lt;/i&gt; &lt;span&gt;Dashboard&lt;/span&gt;
+                    &lt;/a&gt;
+                    &lt;a href="/Reservas" class="nav-link-custom @(ViewContext.RouteData.Values["Controller"]?.ToString() == "Reservas" ? "active" : "")"&gt;
+                        &lt;i class="fas fa-calendar-alt"&gt;&lt;/i&gt; &lt;span&gt;Gestión de Reservas&lt;/span&gt;
+                    &lt;/a&gt;
+                    &lt;a href="/Funcionarios" class="nav-link-custom @(ViewContext.RouteData.Values["Controller"]?.ToString() == "Funcionarios" ? "active" : "")"&gt;
+                        &lt;i class="fas fa-users"&gt;&lt;/i&gt; &lt;span&gt;Funcionarios&lt;/span&gt;
+                    &lt;/a&gt;
+                    &lt;a href="/Reportes" class="nav-link-custom @(ViewContext.RouteData.Values["Controller"]?.ToString() == "Reportes" ? "active" : "")"&gt;
+                        &lt;i class="fas fa-file-alt"&gt;&lt;/i&gt; &lt;span&gt;Reportes&lt;/span&gt;
+                    &lt;/a&gt;
+                &lt;/nav&gt;
+
+                &lt;div class="p-3 border-top border-secondary"&gt;
+                    &lt;div class="d-flex align-items-center gap-2 mb-3 px-2"&gt;
+                        &lt;div class="rounded-circle bg-warning d-flex align-items-center justify-content-center text-dark" style="width: 32px; height: 32px; font-size: 12px; font-weight: bold;"&gt;
+                            A
+                        &lt;/div&gt;
+                        &lt;div class="overflow-hidden"&gt;
+                            &lt;p class="mb-0 small fw-bold text-truncate"&gt;@User.Identity.Name&lt;/p&gt;
+                        &lt;/div&gt;
+                    &lt;/div&gt;
+                    &lt;form asp-controller="Account" asp-action="Logout" method="post"&gt;
+                        &lt;button type="submit" class="nav-link-custom border-0 bg-transparent w-100 text-start"&gt;
+                            &lt;i class="fas fa-sign-out-alt"&gt;&lt;/i&gt; &lt;span&gt;Cerrar Sesión&lt;/span&gt;
+                        &lt;/button&gt;
                     &lt;/form&gt;
+                &lt;/div&gt;
+            &lt;/aside&gt;
 
-                    @section Scripts {
-                        @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
-                    }</code>
-                </pre>
-              </div>
+            &lt;main class="main-content"&gt;
+                @RenderBody()
+            &lt;/main&gt;
+        &lt;/div&gt;
+    }
+    else
+    {
+        @RenderBody()
+    }
+
+    &lt;script src="~/lib/jquery/dist/jquery.min.js"&gt;&lt;/script&gt;
+    &lt;script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"&gt;&lt;/script&gt;
+    @await RenderSectionAsync("Scripts", required: false)
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+    </div>
+  </div>
+
+  <div class="card shadow-sm border-0 mb-4">
+    <div class="card-header bg-dark text-white py-2 d-flex align-items-center">
+      <i class="fab fa-html5 text-warning mr-2"></i>
+      <span class="font-weight-bold">Ruta del archivo:</span>&nbsp;<code>HotelAdmin/Views/Account/Login.cshtml</code>
+    </div>
+    <div class="card-body p-0">
+      <pre class="m-0" style="background-color: #1e1e1e; color: #d4d4d4; padding: 15px; border-radius: 0 0 4px 4px; max-height: 400px; overflow-y: auto;"><code class="language-html">@{
+    Layout = "_Layout";
+    ViewData["Title"] = "Iniciar Sesión";
+}
+
+&lt;div class="login-container"&gt;
+    &lt;div class="login-card"&gt;
+        &lt;div class="text-center mb-4"&gt;
+            &lt;div class="bg-primary text-white rounded-circle d-inline-flex align-items-center justify-content-center mb-3" style="width: 64px; height: 64px;"&gt;
+                &lt;i class="fas fa-hotel fa-2x"&gt;&lt;/i&gt;
+            &lt;/div&gt;
+            &lt;h4 class="fw-bold" style="color: var(--primary);"&gt;Hotel Management&lt;/h4&gt;
+            &lt;p class="text-muted small"&gt;Sistema de Reservas&lt;/p&gt;
+        &lt;/div&gt;
+
+        &lt;form asp-action="Login" method="post"&gt;
+            &lt;div class="mb-3"&gt;
+                &lt;label class="form-label small fw-bold"&gt;Usuario&lt;/label&gt;
+                &lt;div class="input-group"&gt;
+                    &lt;span class="input-group-text bg-light border-end-0 text-muted"&gt;
+                        &lt;i class="fas fa-user"&gt;&lt;/i&gt;
+                    &lt;/span&gt;
+                    &lt;input name="username" type="text" class="form-control bg-light border-start-0" placeholder="Ingrese su usuario" required /&gt;
+                &lt;/div&gt;
+            &lt;/div&gt;
+
+            &lt;div class="mb-4"&gt;
+                &lt;label class="form-label small fw-bold"&gt;Contraseña&lt;/label&gt;
+                &lt;div class="input-group"&gt;
+                    &lt;span class="input-group-text bg-light border-end-0 text-muted"&gt;
+                        &lt;i class="fas fa-lock"&gt;&lt;/i&gt;
+                    &lt;/span&gt;
+                    &lt;input name="password" type="password" class="form-control bg-light border-start-0" placeholder="Ingrese su contraseña" required /&gt;
+                &lt;/div&gt;
+            &lt;/div&gt;
+
+            &lt;button type="submit" class="btn text-white w-100 py-2 fw-bold mb-3" style="background-color: var(--primary);"&gt;
+                Ingresar
+            &lt;/button&gt;
+
+            &lt;div class="text-center"&gt;
+              &lt;a href="#" class="text-decoration-none small" style="color: var(--accent);"&gt;¿Olvidó su contraseña?&lt;/a&gt;
+            &lt;/div&gt;
+        &lt;/form&gt;
+    &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+    </div>
+  </div>
+
+  <div class="card shadow-sm border-0 mb-4">
+    <div class="card-header bg-dark text-white py-2 d-flex align-items-center">
+      <i class="fab fa-html5 text-warning mr-2"></i>
+      <span class="font-weight-bold">Ruta del archivo:</span>&nbsp;<code>HotelAdmin/Views/Dashboard/Index.cshtml</code>
+    </div>
+    <div class="card-body p-0">
+      <pre class="m-0" style="background-color: #1e1e1e; color: #d4d4d4; padding: 15px; border-radius: 0 0 4px 4px; max-height: 400px; overflow-y: auto;"><code class="language-html">@model HotelAdmin.Models.DashboardViewModel
+@{
+    ViewData["Title"] = "Dashboard";
+}
+
+&lt;div class="container-fluid p-0"&gt;
+    &lt;div class="mb-4"&gt;
+        &lt;h2 class="text-primary fw-bold mb-1"&gt;Dashboard&lt;/h2&gt;
+        &lt;p class="text-muted"&gt;Bienvenido al panel de control del sistema de reservas&lt;/p&gt;
+    &lt;/div&gt;
+
+    &lt;div class="row g-4 mb-4"&gt;
+        &lt;div class="col-12 col-md-6"&gt;
+            &lt;div class="card h-100 p-4 border-0 shadow-sm" style="border: 1px solid var(--border) !important;"&gt;
+                &lt;div class="d-flex align-items-center gap-3 mb-3"&gt;
+                    &lt;div class="rounded d-flex align-items-center justify-content-center" style="width: 48px; height: 48px; background-color: var(--secondary); color: var(--primary);"&gt;
+                        &lt;i class="fas fa-calendar-check fa-lg"&gt;&lt;/i&gt;
+                    &lt;/div&gt;
+                    &lt;div&gt;
+                        &lt;h6 class="text-muted mb-0"&gt;Reservas Activas&lt;/h6&gt;
+                        &lt;h3 class="fw-bold mb-0" style="color: var(--primary);"&gt;@Model.ReservasActivas&lt;/h3&gt;
+                    &lt;/div&gt;
+                &lt;/div&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+
+        &lt;div class="col-12 col-md-6"&gt;
+            &lt;div class="card h-100 p-4 border-0 shadow-sm" style="border: 1px solid var(--border) !important;"&gt;
+                &lt;div class="d-flex align-items-center gap-3 mb-3"&gt;
+                    &lt;div class="rounded d-flex align-items-center justify-content-center" style="width: 48px; height: 48px; background-color: var(--secondary); color: var(--accent);"&gt;
+                        &lt;i class="fas fa-users fa-lg"&gt;&lt;/i&gt;
+                    &lt;/div&gt;
+                    &lt;div&gt;
+                        &lt;h6 class="text-muted mb-0"&gt;Huéspedes Hoy&lt;/h6&gt;
+                        &lt;h3 class="fw-bold mb-0" style="color: var(--primary);"&gt;@Model.HuespedesHoy&lt;/h3&gt;
+                    &lt;/div&gt;
+                &lt;/div&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+
+    &lt;div class="card border-0 shadow-sm" style="border: 1px solid var(--border) !important;"&gt;
+        &lt;div class="card-header bg-white p-4 border-bottom" style="border-color: var(--border) !important;"&gt;
+            &lt;h5 class="fw-bold mb-0" style="color: var(--primary);"&gt;Reservas Recientes (Existentes)&lt;/h5&gt;
+        &lt;/div&gt;
+        &lt;div class="table-responsive"&gt;
+            &lt;table class="table table-hover align-middle mb-0"&gt;
+                &lt;thead style="background-color: var(--secondary);"&gt;
+                    &lt;tr&gt;
+                        &lt;th class="px-4 py-3 border-0"&gt;ID&lt;/th&gt;
+                        &lt;th class="px-4 py-3 border-0"&gt;Huésped&lt;/th&gt;
+                        &lt;th class="px-4 py-3 border-0"&gt;Habitación&lt;/th&gt;
+                        &lt;th class="px-4 py-3 border-0"&gt;Entrada&lt;/th&gt;
+                        &lt;th class="px-4 py-3 border-0"&gt;Estado&lt;/th&gt;
+                    &lt;/tr&gt;
+                &lt;/thead&gt;
+                &lt;tbody&gt;
+                    @foreach (var res in Model.ReservasRecientes)
+                    {
+                        &lt;tr&gt;
+                            &lt;td class="px-4 py-3"&gt;@res.Id&lt;/td&gt;
+                            &lt;td class="px-4 py-3 fw-medium"&gt;@res.NombreHuesped&lt;/td&gt;
+                            &lt;td class="px-4 py-3 text-muted"&gt;@res.TipoHabitacion&lt;/td&gt;
+                            &lt;td class="px-4 py-3 text-muted"&gt;@res.CheckIn.ToShortDateString()&lt;/td&gt;
+                            &lt;td class="px-4 py-3"&gt;
+                                &lt;span class="badge @(res.Estado == HotelAdmin.Models.EstadoReserva.Confirmada ? "bg-success" : "bg-warning") bg-opacity-10 @(res.Estado == HotelAdmin.Models.EstadoReserva.Confirmada ? "text-success" : "text-warning") rounded-pill px-3 py-2"&gt;
+                                    @res.Estado
+                                &lt;/span&gt;
+                            &lt;/td&gt;
+                        &lt;/tr&gt;
+                    }
+                &lt;/tbody&gt;
+            &lt;/table&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+    </div>
+  </div>
+<div class="card shadow-sm border-0 mb-4">
+    <div class="card-header bg-dark text-white py-2 d-flex align-items-center">
+      <i class="fab fa-html5 text-warning mr-2"></i>
+      <span class="font-weight-bold">Ruta del archivo:</span>&nbsp;<code>HotelAdmin/Views/Funcionarios/Index.cshtml</code>
+    </div>
+    <div class="card-body p-0">
+      <pre class="m-0" style="background-color: #1e1e1e; color: #d4d4d4; padding: 15px; border-radius: 0 0 4px 4px; max-height: 400px; overflow-y: auto;"><code class="language-html">@model IEnumerable&lt;HotelAdmin.Models.Funcionario&gt;
+@{
+    ViewData["Title"] = "Funcionarios";
+}
+
+&lt;div class="container-fluid p-0"&gt;
+    &lt;h2 class="text-primary fw-bold mb-4"&gt;Panel de Funcionarios&lt;/h2&gt;
+
+    &lt;div class="card p-4 border-0 shadow-sm mb-4"&gt;
+        &lt;form asp-action="Create" method="post" class="row g-3"&gt;
+            &lt;div class="col-md-3"&gt;&lt;input name="CodigoEmpleado" class="form-control" placeholder="Código EMP" required /&gt;&lt;/div&gt;
+            &lt;div class="col-md-3"&gt;&lt;input name="Nombre" class="form-control" placeholder="Nombre Completo" required /&gt;&lt;/div&gt;
+            &lt;div class="col-md-3"&gt;&lt;input name="Rol" class="form-control" placeholder="Rol / Cargo" required /&gt;&lt;/div&gt;
+            &lt;div class="col-md-3"&gt;&lt;button type="submit" class="btn btn-warning w-100 fw-bold"&gt;Agregar al Equipo&lt;/button&gt;&lt;/div&gt;
+        &lt;/form&gt;
+    &lt;/div&gt;
+
+    &lt;div class="card border-0 shadow-sm"&gt;
+        &lt;table class="table table-hover align-middle mb-0"&gt;
+            &lt;thead style="background-color: var(--secondary);"&gt;
+                &lt;tr&gt;
+                    &lt;th class="px-4"&gt;Código&lt;/th&gt;
+                    &lt;th class="px-4"&gt;Nombre&lt;/th&gt;
+                    &lt;th class="px-4"&gt;Rol&lt;/th&gt;
+                    &lt;th class="px-4"&gt;Ventas Registradas&lt;/th&gt;
+                    &lt;th class="px-4 text-center"&gt;Acciones&lt;/th&gt;
+                &lt;/tr&gt;
+            &lt;/thead&gt;
+            &lt;tbody&gt;
+                @foreach (var f in Model)
+                {
+                    &lt;tr&gt;
+                        &lt;td class="px-4"&gt;@f.CodigoEmpleado&lt;/td&gt;
+                        &lt;td class="px-4 fw-medium"&gt;@f.Nombre&lt;/td&gt;
+                        &lt;td class="px-4 text-muted"&gt;@f.Rol&lt;/td&gt;
+                        &lt;td class="px-4"&gt;
+                            &lt;span class="badge rounded-pill bg-primary px-3 py-2"&gt;
+                                &lt;i class="fas fa-shopping-cart me-1"&gt;&lt;/i&gt; @f.Reservas.Count Ventas
+                            &lt;/span&gt;
+                        &lt;/td&gt;
+                        &lt;td class="px-4 text-center"&gt;
+                            &lt;form asp-action="Delete" asp-route-id="@f.Id" method="post"&gt;
+                                &lt;button type="submit" class="btn btn-sm btn-light text-danger"&gt;&lt;i class="fa fa-trash"&gt;&lt;/i&gt;&lt;/button&gt;
+                            &lt;/form&gt;
+                        &lt;/td&gt;
+                    &lt;/tr&gt;
+                }
+            &lt;/tbody&gt;
+        &lt;/table&gt;
+    &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+    </div>
+  </div>
+  <div class="card shadow-sm border-0 mb-4">
+    <div class="card-header bg-dark text-white py-2 d-flex align-items-center">
+      <i class="fab fa-html5 text-warning mr-2"></i>
+      <span class="font-weight-bold">Ruta del archivo:</span>&nbsp;<code>HotelAdmin/Views/Reservas/Index.cshtml</code>
+    </div>
+    <div class="card-body p-0">
+      <pre class="m-0" style="background-color: #1e1e1e; color: #d4d4d4; padding: 15px; border-radius: 0 0 4px 4px; max-height: 400px; overflow-y: auto;"><code class="language-html">@model IEnumerable&lt;HotelAdmin.Models.Reserva&gt;
+@{
+    ViewData["Title"] = "Gestión de Reservas";
+}
+
+&lt;div class="container-fluid p-0"&gt;
+    &lt;div class="mb-4 d-flex align-items-center justify-content-between"&gt;
+        &lt;h2 class="fw-bold text-primary"&gt;Gestión de Reservas&lt;/h2&gt;
+        &lt;button class="btn text-white fw-bold" type="button" data-bs-toggle="collapse" data-bs-target="#formReserva" style="background-color: var(--accent);"&gt;
+            &lt;i class="fas fa-plus"&gt;&lt;/i&gt; Nueva Reserva
+        &lt;/button&gt;
+    &lt;/div&gt;
+
+    &lt;div class="collapse mb-4" id="formReserva"&gt;
+        &lt;div class="card border-0 shadow-sm p-4"&gt;
+            &lt;h5 class="fw-bold mb-3"&gt;Registrar Nueva Reserva&lt;/h5&gt;
+            &lt;form asp-action="Create" method="post"&gt;
+                &lt;div class="row g-3"&gt;
+                    &lt;div class="col-md-3"&gt;
+                        &lt;label class="form-label small fw-bold"&gt;Huésped&lt;/label&gt;
+                        &lt;input type="text" name="NombreHuesped" class="form-control" required /&gt;
+                    &lt;/div&gt;
+                    &lt;div class="col-md-3"&gt;
+                        &lt;label class="form-label small fw-bold"&gt;Habitación&lt;/label&gt;
+                        &lt;select name="TipoHabitacion" class="form-select"&gt;
+                            &lt;option value="0"&gt;Simple ($50k)&lt;/option&gt;
+                            &lt;option value="1"&gt;Doble ($80k)&lt;/option&gt;
+                            &lt;option value="2"&gt;Suite ($150k)&lt;/option&gt;
+                            &lt;option value="3"&gt;Suite Ejecutiva ($250k)&lt;/option&gt;
+                        &lt;/select&gt;
+                    &lt;/div&gt;
+                    &lt;div class="col-md-3"&gt;
+                        &lt;label class="form-label small fw-bold"&gt;Vendedor&lt;/label&gt;
+                        &lt;select name="FuncionarioId" class="form-select" asp-items="ViewBag.Funcionarios" required&gt;
+                            &lt;option value=""&gt;Seleccione...&lt;/option&gt;
+                        &lt;/select&gt;
+                    &lt;/div&gt;
+                    &lt;div class="col-md-3"&gt;
+                        &lt;label class="form-label small fw-bold"&gt;Entrada&lt;/label&gt;
+                        &lt;input type="date" name="CheckIn" class="form-control" required /&gt;
+                    &lt;/div&gt;
+                    &lt;div class="col-md-3"&gt;
+                        &lt;label class="form-label small fw-bold"&gt;Salida&lt;/label&gt;
+                        &lt;input type="date" name="CheckOut" class="form-control" required /&gt;
+                    &lt;/div&gt;
+                &lt;/div&gt;
+                &lt;div class="mt-3 text-end"&gt;
+                    &lt;button type="submit" class="btn text-white px-4" style="background-color: var(--primary);"&gt;Guardar Reserva&lt;/button&gt;
+                &lt;/div&gt;
+            &lt;/form&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+
+    &lt;div class="card border-0 shadow-sm"&gt;
+        &lt;div class="table-responsive"&gt;
+            &lt;table class="table table-hover align-middle mb-0"&gt;
+                &lt;thead style="background-color: var(--secondary);"&gt;
+                    &lt;tr&gt;
+                        &lt;th class="px-4"&gt;Huésped&lt;/th&gt;
+                        &lt;th class="px-4"&gt;Habitación&lt;/th&gt;
+                        &lt;th class="px-4"&gt;Vendedor&lt;/th&gt;
+                        &lt;th class="px-4"&gt;Precio Total&lt;/th&gt;
+                        &lt;th class="px-4"&gt;Estado&lt;/th&gt;
+                        &lt;th class="px-4 text-center"&gt;Acciones&lt;/th&gt;
+                    &lt;/tr&gt;
+                &lt;/thead&gt;
+                &lt;tbody&gt;
+                    @foreach (var item in Model)
+                    {
+                        &lt;tr&gt;
+                            &lt;td class="px-4 fw-medium"&gt;@item.NombreHuesped&lt;/td&gt;
+                            &lt;td class="px-4 text-muted"&gt;@item.TipoHabitacion&lt;/td&gt;
+                            &lt;td class="px-4"&gt;&lt;span class="badge bg-light text-dark border"&gt;@(item.Funcionario?.Nombre ?? "N/A")&lt;/span&gt;&lt;/td&gt;
+                            &lt;td class="px-4 fw-bold text-primary"&gt;@item.PrecioTotal.ToString("C0")&lt;/td&gt;
+                            &lt;td class="px-4"&gt;
+                                &lt;span class="badge @(item.Estado == HotelAdmin.Models.EstadoReserva.Confirmada ? "bg-success" : "bg-warning") bg-opacity-10 @(item.Estado == HotelAdmin.Models.EstadoReserva.Confirmada ? "text-success" : "text-warning") rounded-pill px-3 py-2"&gt;
+                                    @item.Estado
+                                &lt;/span&gt;
+                            &lt;/td&gt;
+                            &lt;td class="px-4 text-center"&gt;
+                                &lt;div class="d-flex justify-content-center gap-2"&gt;
+                                    &lt;a asp-action="Edit" asp-route-id="@item.Id" class="btn btn-sm btn-light text-primary"&gt;
+                                        &lt;i class="fas fa-edit"&gt;&lt;/i&gt;
+                                    &lt;/a&gt;
+                                    &lt;form asp-action="Delete" asp-route-id="@item.Id" method="post" onsubmit="return confirm('¿Eliminar reserva?');"&gt;
+                                        &lt;button type="submit" class="btn btn-sm btn-light text-danger"&gt;
+                                            &lt;i class="fas fa-trash"&gt;&lt;/i&gt;
+                                        &lt;/button&gt;
+                                    &lt;/form&gt;
+                                &lt;/div&gt;
+                            &lt;/td&gt;
+                        &lt;/tr&gt;
+                    }
+                &lt;/tbody&gt;
+            &lt;/table&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+    </div>
+  </div>
+  <div class="card shadow-sm border-0 mb-4">
+    <div class="card-header bg-dark text-white py-2 d-flex align-items-center">
+      <i class="fab fa-html5 text-warning mr-2"></i>
+      <span class="font-weight-bold">Ruta del archivo:</span>&nbsp;<code>HotelAdmin/Views/Reservas/Edit.cshtml</code>
+    </div>
+    <div class="card-body p-0">
+      <pre class="m-0" style="background-color: #1e1e1e; color: #d4d4d4; padding: 15px; border-radius: 0 0 4px 4px; max-height: 400px; overflow-y: auto;"><code class="language-html">@model HotelAdmin.Models.Reserva
+@{
+    ViewData["Title"] = "Editar Reserva";
+}
+
+&lt;div class="container-fluid p-0"&gt;
+    &lt;div class="mb-4"&gt;
+        &lt;h2 class="fw-bold text-primary"&gt;Modificar Reserva #@Model.Id&lt;/h2&gt;
+        &lt;a asp-action="Index" class="text-decoration-none small text-muted"&gt;&lt;i class="fas fa-arrow-left"&gt;&lt;/i&gt; Volver&lt;/a&gt;
+    &lt;/div&gt;
+
+    &lt;div class="card border-0 shadow-sm p-4" style="max-width: 800px;"&gt;
+        &lt;form asp-action="Edit" method="post"&gt;
+            &lt;input type="hidden" asp-for="Id" /&gt;
+
+            &lt;div class="row g-4"&gt;
+                &lt;div class="col-md-12"&gt;
+                    &lt;label class="form-label fw-bold small"&gt;Nombre del Huésped&lt;/label&gt;
+                    &lt;input asp-for="NombreHuesped" class="form-control" required /&gt;
+                &lt;/div&gt;
+
+                &lt;div class="col-md-6"&gt;
+                    &lt;label class="form-label fw-bold small"&gt;Funcionario Responsable&lt;/label&gt;
+                    &lt;select asp-for="FuncionarioId" class="form-select" asp-items="ViewBag.Funcionarios" required&gt;&lt;/select&gt;
+                &lt;/div&gt;
+
+                &lt;div class="col-md-6"&gt;
+                    &lt;label class="form-label fw-bold small"&gt;Tipo de Habitación&lt;/label&gt;
+                    &lt;select asp-for="TipoHabitacion" class="form-select" asp-items="Html.GetEnumSelectList&lt;HotelAdmin.Models.TipoHabitacion&gt;()"&gt;&lt;/select&gt;
+                &lt;/div&gt;
+
+                &lt;div class="col-md-6"&gt;
+                    &lt;label class="form-label fw-bold small"&gt;Estado&lt;/label&gt;
+                    &lt;select asp-for="Estado" class="form-select" asp-items="Html.GetEnumSelectList&lt;HotelAdmin.Models.EstadoReserva&gt;()"&gt;&lt;/select&gt;
+                &lt;/div&gt;
+
+                &lt;div class="col-md-3"&gt;
+                    &lt;label class="form-label fw-bold small"&gt;Check-In&lt;/label&gt;
+                    &lt;input asp-for="CheckIn" type="date" class="form-control" /&gt;
+                &lt;/div&gt;
+
+                &lt;div class="col-md-3"&gt;
+                    &lt;label class="form-label small fw-bold"&gt;Check-Out&lt;/label&gt;
+                    &lt;input asp-for="CheckOut" type="date" class="form-control" /&gt;
+                &lt;/div&gt;
+            &lt;/div&gt;
+
+            &lt;div class="mt-4 pt-3 border-top d-flex justify-content-end gap-3"&gt;
+                &lt;a asp-action="Index" class="btn btn-outline-secondary"&gt;Cancelar&lt;/a&gt;
+                &lt;button type="submit" class="btn text-white px-5" style="background-color: var(--primary);"&gt;Guardar Cambios&lt;/button&gt;
+            &lt;/div&gt;
+        &lt;/form&gt;
+    &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+    </div>
+  </div>
+
+ <div class="card shadow-sm border-0 mb-4">
+    <div class="card-header bg-dark text-white py-2 d-flex align-items-center">
+      <i class="fab fa-html5 text-warning mr-2"></i>
+      <span class="font-weight-bold">Ruta del archivo:</span>&nbsp;<code>HotelAdmin/Views/Reportes/Index.cshtml</code>
+    </div>
+    <div class="card-body p-0">
+      <pre class="m-0" style="background-color: #1e1e1e; color: #d4d4d4; padding: 15px; border-radius: 0 0 4px 4px; max-height: 400px; overflow-y: auto;"><code class="language-html">@model HotelAdmin.Models.ReportesViewModel
+@{
+    ViewData["Title"] = "Reportes y Estadísticas";
+}
+
+&lt;div class="container-fluid p-0"&gt;
+    &lt;div class="mb-4"&gt;
+        &lt;h2 class="fw-bold mb-1" style="color: var(--primary);"&gt;Reportes y Estadísticas&lt;/h2&gt;
+        &lt;p class="text-muted"&gt;Análisis dinámico de datos del sistema&lt;/p&gt;
+    &lt;/div&gt;
+
+    &lt;div class="card border-0 shadow-sm p-4 mb-4" style="border: 1px solid var(--border) !important;"&gt;
+        &lt;h5 class="fw-bold mb-3" style="color: var(--primary);"&gt;Filtros de Reporte&lt;/h5&gt;
+
+        &lt;form method="get" asp-action="Index"&gt;
+            &lt;div class="row g-4"&gt;
+                &lt;div class="col-md-4"&gt;
+                    &lt;label class="form-label fw-bold small"&gt;Período&lt;/label&gt;
+                    &lt;select name="periodo" class="form-select bg-light" onchange="this.form.submit()"&gt;
+                        &lt;option value="week" selected="@(Model.Periodo == "week" ? "selected" : null)"&gt;Última Semana&lt;/option&gt;
+                        &lt;option value="month" selected="@(Model.Periodo == "month" ? "selected" : null)"&gt;Último Mes&lt;/option&gt;
+                        &lt;option value="quarter" selected="@(Model.Periodo == "quarter" ? "selected" : null)"&gt;Último Trimestre&lt;/option&gt;
+                        &lt;option value="year" selected="@(Model.Periodo == "year" ? "selected" : null)"&gt;Último Año&lt;/option&gt;
+                    &lt;/select&gt;
+                &lt;/div&gt;
+                &lt;div class="col-md-4"&gt;
+                    &lt;label class="form-label fw-bold small"&gt;Tipo de Reporte (Visual)&lt;/label&gt;
+                    &lt;select class="form-select bg-light"&gt;
+                        &lt;option value="general" selected&gt;General&lt;/option&gt;
+                        &lt;option value="reservations"&gt;Reservas&lt;/option&gt;
+                    &lt;/select&gt;
+                &lt;/div&gt;
+            &lt;/div&gt;
+        &lt;/form&gt;
+    &lt;/div&gt;
+
+    &lt;div class="row g-4 mb-4"&gt;
+        &lt;div class="col-md-4"&gt;
+            &lt;div class="card p-4 border-0 shadow-sm h-100" style="border: 1px solid var(--border) !important;"&gt;
+                &lt;div class="rounded d-flex align-items-center justify-content-center mb-3" style="width: 48px; height: 48px; background-color: var(--secondary); color: var(--primary);"&gt;
+                    &lt;i class="fas fa-calendar-check fa-lg"&gt;&lt;/i&gt;
+                &lt;/div&gt;
+                &lt;h6 class="text-muted mb-1"&gt;Total de Reservas (@Model.Periodo)&lt;/h6&gt;
+                &lt;p class="h3 fw-bold mb-0" style="color: var(--primary);"&gt;@Model.TotalReservas&lt;/p&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+
+        &lt;div class="col-md-4"&gt;
+            &lt;div class="card p-4 border-0 shadow-sm h-100" style="border: 1px solid var(--border) !important;"&gt;
+                &lt;div class="rounded d-flex align-items-center justify-content-center mb-3" style="width: 48px; height: 48px; background-color: var(--secondary); color: var(--accent);"&gt;
+                    &lt;i class="fas fa-chart-line fa-lg"&gt;&lt;/i&gt;
+                &lt;/div&gt;
+                &lt;h6 class="text-muted mb-1"&gt;Ingresos Estimados&lt;/h6&gt;
+                &lt;p class="h3 fw-bold mb-0" style="color: var(--primary);"&gt;@Model.IngresosTotales.ToString("C0")&lt;/p&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+
+        &lt;div class="col-md-4"&gt;
+            &lt;div class="card p-4 border-0 shadow-sm h-100" style="border: 1px solid var(--border) !important;"&gt;
+                &lt;div class="rounded d-flex align-items-center justify-content-center mb-3" style="width: 48px; height: 48px; background-color: var(--secondary); color: #8b7355;"&gt;
+                    &lt;i class="fas fa-user-tag fa-lg"&gt;&lt;/i&gt;
+                &lt;/div&gt;
+                &lt;h6 class="text-muted mb-1"&gt;Ventas por Funcionario (Promedio)&lt;/h6&gt;
+                &lt;p class="h3 fw-bold mb-0" style="color: var(--primary);"&gt;@Model.PromedioVentasFuncionario.ToString("0.0")&lt;/p&gt;
+                &lt;small class="text-muted mt-2"&gt;Total general de ventas: @Model.TotalVentasFuncionarios&lt;/small&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+
+    &lt;div class="card border-0 shadow-sm p-5 text-center" style="border: 1px solid var(--border) !important;"&gt;
+        &lt;div class="max-w-2xl mx-auto"&gt;
+            &lt;h3 class="fw-bold mb-2" style="color: var(--primary);"&gt;Exportar Informe&lt;/h3&gt;
+            &lt;p class="text-muted mb-4"&gt;Descargue el informe completo de las reservas del sistema&lt;/p&gt;
+
+            &lt;div class="d-flex flex-column flex-sm-row gap-3 justify-content-center mt-4"&gt;
+                &lt;a href="@Url.Action("ExportarExcel", "Reportes")" class="btn btn-success btn-lg d-flex align-items-center justify-content-center gap-3 px-4 py-3"&gt;
+                    &lt;i class="fas fa-file-excel fa-2x"&gt;&lt;/i&gt;
+                    &lt;div class="text-start"&gt;
+                        &lt;div class="fw-bold fs-6"&gt;Exportar en Excel&lt;/div&gt;
+                        &lt;div class="small opacity-75" style="font-size: 0.75rem;"&gt;Formato editable para análisis&lt;/div&gt;
+                    &lt;/div&gt;
+                &lt;/a&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+    </div>
+  </div>
+  <div class="card shadow-sm border-0 mb-4">
+    <div class="card-header bg-dark text-white py-2 d-flex align-items-center">
+      <i class="fab fa-html5 text-warning mr-2"></i>
+      <span class="font-weight-bold">Ruta del archivo:</span>&nbsp;<code>HotelAdmin/Views/Shared/_LoginPartial.cshtml</code>
+    </div>
+    <div class="card-body p-0">
+      <pre class="m-0" style="background-color: #1e1e1e; color: #d4d4d4; padding: 15px; border-radius: 0 0 4px 4px; max-height: 400px; overflow-y: auto;"><code class="language-html">@using Microsoft.AspNetCore.Identity
+@inject SignInManager&lt;IdentityUser&gt; SignInManager
+@inject UserManager&lt;IdentityUser&gt; UserManager
+
+&lt;ul class="navbar-nav"&gt;
+@if (SignInManager.IsSignedIn(User))
+{
+    &lt;li class="nav-item"&gt;
+        &lt;a  class="nav-link text-dark" asp-area="Identity" asp-page="/Account/Manage/Index" title="Manage"&gt;Hello @User.Identity?.Name!&lt;/a&gt;
+    &lt;/li&gt;
+    &lt;li class="nav-item"&gt;
+        &lt;form  class="form-inline" asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="@Url.Action("Index", "Home", new { area = "" })"&gt;
+            &lt;button  type="submit" class="nav-link btn btn-link text-dark"&gt;Logout&lt;/button&gt;
+        &lt;/form&gt;
+    &lt;/li&gt;
+}
+else
+{
+    &lt;li class="nav-item"&gt;
+        &lt;a class="nav-link text-dark" asp-area="Identity" asp-page="/Account/Register"&gt;Register&lt;/a&gt;
+    &lt;/li&gt;
+    &lt;li class="nav-item"&gt;
+        &lt;a class="nav-link text-dark" asp-area="Identity" asp-page="/Account/Login"&gt;Login&lt;/a&gt;
+    &lt;/li&gt;
+}
+&lt;/ul&gt;</code></pre>
+    </div>
+  </div>
+  <div class="container mt-4 mb-5">
+  <h3 class="text-dark border-bottom pb-2"><i class="fas fa-paint-brush font-weight-bold text-info"></i> Carpeta: wwwroot/css (Estilos Globales)</h3>
+  <p>Para que nuestro sistema luzca moderno y profesional, necesitamos aplicar estilos personalizados. En ASP.NET MVC, todos los archivos públicos (CSS, imágenes, JavaScript) van en la carpeta <strong>wwwroot</strong>.</p>
+
+  <div class="card shadow-sm border-0 mb-4">
+    <div class="card-header bg-dark text-white py-2 d-flex align-items-center">
+      <i class="fab fa-css3-alt text-primary mr-2"></i>
+      <span class="font-weight-bold">Ruta del archivo:</span>&nbsp;<code>HotelAdmin/wwwroot/css/site.css</code>
+    </div>
+    <div class="card-body p-0">
+      <pre class="m-0" style="background-color: #1e1e1e; color: #d4d4d4; padding: 15px; border-radius: 0 0 4px 4px; max-height: 400px; overflow-y: auto;"><code class="language-css">:root {
+    --primary: #1e3a5f;
+    --primary-foreground: #ffffff;
+    --background: #f5f7fa;
+    --sidebar: #1e3a5f;
+    --sidebar-foreground: #ffffff;
+    --sidebar-primary: #d4af37;
+    --sidebar-accent: #2d4a6f;
+    --sidebar-border: #2d4a6f;
+    --accent: #d4af37;
+    --border: #e0e7ef;
+    --card: #ffffff;
+}
+
+body {
+    background-color: var(--background);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: var(--primary);
+}
+
+.wrapper {
+    display: flex;
+    height: 100vh;
+    overflow: hidden;
+}
+
+.sidebar {
+    width: 260px;
+    background-color: var(--sidebar);
+    color: var(--sidebar-foreground);
+    display: flex;
+    flex-direction: column;
+    box-shadow: 4px 0 10px rgba(0,0,0,0.1);
+}
+
+.sidebar-logo {
+    padding: 1.5rem;
+    border-bottom: 1px solid var(--sidebar-border);
+}
+
+.logo-icon {
+    width: 40px;
+    height: 40px;
+    background-color: var(--sidebar-primary);
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--primary);
+}
+
+.nav-menu {
+    flex: 1;
+    padding: 1rem;
+}
+
+.nav-link-custom {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 0.75rem 1rem;
+    color: var(--sidebar-foreground);
+    text-decoration: none;
+    border-radius: 8px;
+    transition: all 0.2s;
+    margin-bottom: 0.5rem;
+}
+
+.nav-link-custom:hover {
+    background-color: var(--sidebar-accent);
+    color: white;
+}
+
+.nav-link-custom.active {
+    background-color: var(--sidebar-primary);
+    color: var(--primary);
+    font-weight: 600;
+}
+
+.main-content {
+    flex: 1;
+    overflow-y: auto;
+    padding: 2rem;
+}
+
+.login-container {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--background);
+}
+
+.login-card {
+    background: var(--card);
+    padding: 2.5rem;
+    border-radius: 1rem;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+    width: 100%;
+    max-width: 400px;
+    border: 1px solid var(--border);
+}</code></pre>
+    </div>
+  </div>
+</div>
+
+                </li>
+                <li class="list-group-item">
+                  <h5 class="text-primary"><i class="fas fa-file-excel"></i> 6. Funcionalidades Avanzadas</h5>
+                  <p class="mb-1">Instala <strong>ClosedXML</strong> para configurar tu <code>ReportesController</code> y generar documentos Excel de auditoría. Finalmente, integra todo a través de la página maestra <code>_Layout.cshtml</code> para la navegación global.</p>
+                  <div class="container mt-4 mb-5">
+  <h3 class="text-dark border-bottom pb-2"><i class="fas fa-cogs font-weight-bold text-danger"></i> Archivo Raíz: Configuración del Servidor</h3>
+  <p>El archivo <code>Program.cs</code> es el motor que arranca todo nuestro sistema. Aquí es donde inyectamos la conexión a la base de datos, configuramos las reglas de seguridad (Login) y definimos qué pantalla se mostrará por defecto al abrir la aplicación.</p>
+
+  <div class="card shadow-sm border-0 mb-4">
+    <div class="card-header bg-dark text-white py-2 d-flex align-items-center">
+      <i class="fab fa-cuttlefish text-info mr-2"></i>
+      <span class="font-weight-bold">Ruta del archivo:</span>&nbsp;<code>HotelAdmin/Program.cs</code>
+    </div>
+    <div class="card-body p-0">
+      <pre class="m-0" style="background-color: #1e1e1e; color: #d4d4d4; padding: 15px; border-radius: 0 0 4px 4px; max-height: 500px; overflow-y: auto;"><code class="language-csharp">using HotelAdmin.Data;
+using HotelAdmin.Models;
+using Microsoft.AspNetCore.Identity;
+using Microsoft.EntityFrameworkCore;
+
+var builder = WebApplication.CreateBuilder(args);
+
+var connectionString = builder.Configuration.GetConnectionString("DefaultConnection")
+    ?? throw new InvalidOperationException("Connection string 'DefaultConnection' not found.");
+
+builder.Services.AddDbContext&lt;ApplicationDbContext&gt;(options =&gt;
+    options.UseSqlServer(connectionString));
+
+builder.Services.AddIdentity&lt;ApplicationUser, IdentityRole&gt;(options =&gt; {
+    options.Password.RequireDigit = false;
+    options.Password.RequiredLength = 6;
+    options.Password.RequireNonAlphanumeric = false;
+    options.Password.RequireUppercase = false;
+    options.Password.RequireLowercase = false;
+})
+.AddEntityFrameworkStores&lt;ApplicationDbContext&gt;()
+.AddDefaultTokenProviders();
+
+builder.Services.ConfigureApplicationCookie(options =&gt;
+{
+    options.LoginPath = "/Account/Login";
+    options.LogoutPath = "/Account/Logout";
+    options.AccessDeniedPath = "/Account/AccessDenied";
+});
+
+builder.Services.AddControllersWithViews();
+
+var app = builder.Build();
+
+if (!app.Environment.IsDevelopment())
+{
+    app.UseExceptionHandler("/Home/Error");
+    app.UseHsts();
+}
+
+app.UseHttpsRedirection();
+app.UseStaticFiles();
+
+app.UseRouting();
+
+app.UseAuthentication();
+app.UseAuthorization();
+
+app.MapControllerRoute(
+    name: "default",
+    pattern: "{controller=Dashboard}/{action=Index}/{id?}");
+
+app.Run();</code></pre>
+    </div>
+  </div>
+</div>
+</div>
+<div class="container mt-5 mb-5">
+  <div class="alert shadow-sm border-0 py-4 px-4 text-center" style="background-color: rgba(40, 167, 69, 0.1); border-left: 6px solid #28a745 !important; border-radius: 8px;">
+    <h3 class="fw-bold text-success mb-3">
+      <i class="fas fa-trophy fa-lg mr-2"></i> ¡Misión Cumplida!
+    </h3>
+    <p class="lead mb-0" style="color: var(--primary); font-weight: 500; line-height: 1.6;">
+      CON ESTO YA TENDRÍAN UN EJEMPLO PRÁCTICO DE UN PROYECTO DE ASP.NET MVC COMPLETO, CON FUNCIONALIDADES REALES, DISEÑO MODERNO Y UNA ESTRUCTURA ORGANIZADA. PUEDEN USARLO COMO BASE PARA SUS PROPIOS PROYECTOS O COMO REFERENCIA PARA APRENDER LAS MEJORES PRÁCTICAS DE DESARROLLO EN ASP.NET MVC.
+    </p>
+  </div>
+</div>
+                </li>
+              </ul>
             </div>
           </div>
         </div>
@@ -1075,7 +2328,6 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-csharp.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-aspnet.min.js"></script>
-    <script src="js/project.js"></script>
     <script src="js/crud.js"></script>
     <script src="js/layout.js"></script>
     <script src="js/excel.js"></script>

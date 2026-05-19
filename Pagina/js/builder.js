@@ -11,11 +11,11 @@ document.addEventListener('DOMContentLoaded', () => {
             selects.forEach(select => {
                 const value = select.value;
                 
-                // Reiniciamos clases
+                
                 select.classList.remove('success', 'error');
 
                 if (value === "") {
-                    // Si dejó espacios en blanco, sabemos que falta responder
+                    
                     allCorrect = false;
                 } else {
                     answeredCount++;
@@ -32,13 +32,13 @@ document.addEventListener('DOMContentLoaded', () => {
 
             if (answeredCount < selects.length) {
                 feedback.innerHTML = '<i class="fas fa-exclamation-triangle text-warning"></i> Faltan espacios por llenar. Completa todo el código.';
-                feedback.style.color = '#fd971f'; // Color warning oscuro
+                feedback.style.color = '#fd971f'; 
             } else if (allCorrect) {
                 feedback.innerHTML = '<i class="fas fa-check-circle text-success"></i> ¡Compilación exitosa! Has utilizado la sintaxis de Razor correctamente.';
-                feedback.style.color = '#a6e22e'; // Verde
+                feedback.style.color = '#a6e22e'; 
             } else {
                 feedback.innerHTML = '<i class="fas fa-times-circle text-danger"></i> Error de Compilación. Hay líneas de código incorrectas marcadas en rojo.';
-                feedback.style.color = '#f92672'; // Rojo magenta
+                feedback.style.color = '#f92672'; 
             }
         });
     }

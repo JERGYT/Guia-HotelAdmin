@@ -3,11 +3,11 @@ document.addEventListener('DOMContentLoaded', () => {
     const dropZones = document.querySelectorAll('.drop-zone');
     let draggedElement = null;
 
-    // Configurar qué pasa cuando "agarramos" una ficha
+    
     draggables.forEach(draggable => {
         draggable.addEventListener('dragstart', (e) => {
             draggedElement = draggable;
-            // Guardamos la respuesta correcta en la memoria
+            
             e.dataTransfer.setData('text/plain', draggable.getAttribute('data-id'));
             setTimeout(() => draggable.style.opacity = '0.5', 0);
         });
@@ -18,10 +18,10 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    // Configurar qué pasa cuando "soltamos" una ficha en la zona destino
+    
     dropZones.forEach(zone => {
         zone.addEventListener('dragover', (e) => {
-            e.preventDefault(); // Permitir soltar
+            e.preventDefault(); 
             if (!zone.classList.contains('correct')) zone.classList.add('over');
         });
 
@@ -36,15 +36,15 @@ document.addEventListener('DOMContentLoaded', () => {
             const draggedId = e.dataTransfer.getData('text/plain');
             const targetId = zone.getAttribute('data-target');
 
-            // VALIDACIÓN LÓGICA
+            
             if (draggedId === targetId) {
                 zone.classList.add('correct');
                 zone.classList.remove('incorrect');
                 zone.innerHTML = `<i class="fas fa-check-circle"></i> ¡Correcto! - ${draggedElement.innerText}`;
-                draggedElement.style.display = 'none'; // Desaparece la ficha original
+                draggedElement.style.display = 'none'; 
             } else {
                 zone.classList.add('incorrect');
-                setTimeout(() => zone.classList.remove('incorrect'), 800); // Vibración de error
+                setTimeout(() => zone.classList.remove('incorrect'), 800); 
             }
         });
     });
