@@ -1,15 +1,32 @@
-
+/* Variables de color para un diseño Dark Dashboard moderno */
 :root {
-    --primary-color: #6f42c1;
-    --bg-color: #f8f9fa;
-    --sidebar-bg: #1e1e2f;
-    --text-light: #fff;
+    --primary-color: #a855f7;       /* Púrpura neón vibrante */
+    --primary-hover: #9333ea;       /* Púrpura más oscuro para hovers */
+    --bg-color: #0f172a;            /* Fondo general de la página (Slate 900) */
+    --sidebar-bg: #1e293b;          /* Fondo de la barra lateral (Slate 800) */
+    --card-bg: #1e293b;             /* Fondo para bloques de contenido o tarjetas */
+    --text-main: #f8fafc;           /* Texto principal ultra claro (Slate 50) */
+    --text-muted: #94a3b8;          /* Texto secundario/atenuado (Slate 400) */
+    --border-color: #334155;        /* Bordes sutiles de separación (Slate 700) */
+    --text-light: #ffffff;
 }
 
-* { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Inter', sans-serif; }
-body { display: flex; height: 100vh; background-color: var(--bg-color); overflow: hidden; }
+* { 
+    margin: 0; 
+    padding: 0; 
+    box-sizing: border-box; 
+    font-family: 'Poppins', 'Inter', sans-serif; 
+}
 
+body { 
+    display: flex; 
+    height: 100vh; 
+    background-color: var(--bg-color); 
+    color: var(--text-main);
+    overflow: hidden; 
+}
 
+/* BARRA LATERAL (SIDEBAR) */
 .sidebar {
     width: 280px;
     background-color: var(--sidebar-bg);
@@ -17,27 +34,166 @@ body { display: flex; height: 100vh; background-color: var(--bg-color); overflow
     display: flex;
     flex-direction: column;
     padding: 20px 0;
-    box-shadow: 2px 0 10px rgba(0,0,0,0.1);
+    border-right: 1px solid var(--border-color);
+    box-shadow: 4px 0 15px rgba(0, 0, 0, 0.3);
 }
 
-.sidebar-header { padding: 0 20px 20px; border-bottom: 1px solid rgba(255,255,255,0.1); margin-bottom: 20px; }
-.sidebar-header h2 { font-size: 1.2rem; font-weight: 800; color: #e2d9f3; }
+.sidebar-header { 
+    padding: 0 25px 20px; 
+    border-bottom: 1px solid var(--border-color); 
+    margin-bottom: 20px; 
+}
 
+.sidebar-header h2 { 
+    font-size: 1.3rem; 
+    font-weight: 800; 
+    color: var(--text-light);
+    letter-spacing: 0.5px;
+}
+
+/* Animación o detalle neón en los botones */
 .nav-btn {
-    background: none; border: none; color: #a0a0b0; padding: 15px 25px;
-    text-align: left; font-size: 1rem; cursor: pointer; transition: all 0.3s;
-    display: flex; align-items: center; gap: 15px;
+    background: none; 
+    border: none; 
+    color: var(--text-muted); 
+    padding: 14px 25px;
+    text-align: left; 
+    font-size: 0.95rem; 
+    cursor: pointer; 
+    transition: all 0.3s ease;
+    display: flex; 
+    align-items: center; 
+    gap: 15px;
+    font-weight: 500;
 }
-.nav-btn:hover, .nav-btn.active { background-color: rgba(255,255,255,0.1); color: var(--text-light); border-left: 4px solid var(--primary-color); }
 
+.nav-btn:hover { 
+    background-color: rgba(147, 51, 234, 0.1); 
+    color: var(--text-light); 
+}
 
-.main-content { flex: 1; padding: 40px; overflow-y: auto; }
-.content-section { display: none; max-width: 900px; margin: 0 auto; animation: fadeIn 0.4s; }
-.content-section.active { display: block; }
-@keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+.nav-btn.active { 
+    background-color: rgba(147, 51, 234, 0.15); 
+    color: var(--text-light); 
+    border-left: 4px solid var(--primary-color);
+    font-weight: 600;
+}
 
+/* ÁREA DE CONTENIDO PRINCIPAL */
+.main-content { 
+    flex: 1; 
+    padding: 50px; 
+    overflow-y: auto; 
+    background-color: var(--bg-color);
+}
 
-h1 { color: var(--primary-color); margin-bottom: 10px; font-weight: 800; font-size: 2.5rem; }
-h3 { color: #2c3e50; margin: 30px 0 15px; font-size: 1.5rem; border-bottom: 2px solid #e9ecef; padding-bottom: 5px; }
-p { color: #555; line-height: 1.6; margin-bottom: 15px; font-size: 1.05rem; }
-ul { margin-bottom: 20px; padding-left: 20px; color: #555; line-height: 1.6;}
+/* Personalización del Scrollbar para entornos oscuros */
+.main-content::-webkit-scrollbar {
+    width: 8px;
+}
+.main-content::-webkit-scrollbar-track {
+    background: var(--bg-color);
+}
+.main-content::-webkit-scrollbar-thumb {
+    background: var(--border-color);
+    border-radius: 4px;
+}
+.main-content::-webkit-scrollbar-thumb:hover {
+    background: var(--primary-color);
+}
+
+.content-section { 
+    display: none; 
+    max-width: 1000px; 
+    margin: 0 auto; 
+    animation: fadeIn 0.4s ease-out; 
+}
+
+.content-section.active { 
+    display: block; 
+}
+
+@keyframes fadeIn { 
+    from { opacity: 0; transform: translateY(12px); } 
+    to { opacity: 1; transform: translateY(0); } 
+}
+
+/* TIPOGRAFÍA Y ELEMENTOS DE LA GUÍA */
+h1 { 
+    color: var(--text-light); 
+    margin-bottom: 15px; 
+    font-weight: 800; 
+    font-size: 2.6rem; 
+    letter-spacing: -0.5px;
+}
+
+/* Línea decorativa debajo del título principal */
+h1::after {
+    content: '';
+    display: block;
+    width: 60px;
+    height: 4px;
+    background-color: var(--primary-color);
+    margin-top: 12px;
+    border-radius: 2px;
+}
+
+h3 { 
+    color: var(--text-light); 
+    margin: 45px 0 20px; 
+    font-size: 1.5rem; 
+    font-weight: 700;
+    border-bottom: 1px solid var(--border-color); 
+    padding-bottom: 8px; 
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+/* Viñeta neón antes de cada subtítulo */
+h3::before {
+    content: '■';
+    color: var(--primary-color);
+    font-size: 1.1rem;
+}
+
+p { 
+    color: var(--text-muted); 
+    line-height: 1.7; 
+    margin-bottom: 20px; 
+    font-size: 1.05rem; 
+}
+
+ul, ol { 
+    margin-bottom: 25px; 
+    padding-left: 25px; 
+    color: var(--text-muted); 
+    line-height: 1.7;
+    font-size: 1.05rem;
+}
+
+li {
+    margin-bottom: 8px;
+}
+
+strong {
+    color: var(--text-light);
+    font-weight: 600;
+}
+
+/* SOPORTE PARA TARJETAS DE CÓDIGO (Para que combinen perfectamente) */
+.card {
+    background-color: var(--card-bg) !important;
+    border: 1px solid var(--border-color) !important;
+    color: var(--text-main) !important;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2) !important;
+}
+
+.card-header {
+    background-color: #0b0f19 !important; /* Un tono más profundo para la barra superior del código */
+    border-bottom: 1px solid var(--border-color) !important;
+}
+
+code {
+    font-family: 'Fira Code', 'Courier New', monospace !important;
+}
