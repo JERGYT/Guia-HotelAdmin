@@ -1,199 +1,229 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&family=Inter:wght@400;500;600&display=swap');
 
 :root {
-    --primary-color: #a855f7;      
-    --primary-hover: #9333ea;      
-    --bg-color: #0f172a;           
-    --sidebar-bg: #1e293b;         
-    --card-bg: #1e293b;            
-    --text-main: #f8fafc;          
-    --text-muted: #94a3b8;         
-    --border-color: #334155;       
-    --text-light: #ffffff;
+    --primary-color: #b366ff;      
+    --primary-hover: #9933ff;      
+    --bg-color: #0d0d12;           
+    --card-bg: #15151a;            
+    --text-main: #cbd5e1;          
+    --text-muted: #8e9db0;         
+    --border-color: #272733;       
+    --text-light: #f8fafc;
+    --font-heading: 'Poppins', sans-serif;
+    --font-body: 'Inter', sans-serif;
 }
 
 * { 
     margin: 0; 
     padding: 0; 
     box-sizing: border-box; 
-    font-family: 'Poppins', 'Inter', sans-serif; 
 }
 
 body { 
     display: flex; 
+    flex-direction: column; 
     height: 100vh; 
     background-color: var(--bg-color); 
     color: var(--text-main);
-    overflow: hidden; 
+    overflow-y: auto; 
+    overflow-x: hidden;
+    font-family: var(--font-body); 
+    font-size: 16px; 
+    line-height: 1.8; 
 }
 
+h1, h2, h3, h4, h5, h6 { 
+    font-family: var(--font-heading); 
+    color: var(--text-light); 
+}
 
+/* =========================================
+   BARRA SUPERIOR (Navegación)
+   ========================================= */
 .sidebar {
-    width: 280px;
-    background-color: var(--sidebar-bg);
-    color: var(--text-light);
-    display: flex;
-    flex-direction: column;
-    padding: 20px 0;
-    border-right: 1px solid var(--border-color);
-    box-shadow: 4px 0 15px rgba(0, 0, 0, 0.3);
+    width: 100%; 
+    background-color: rgba(13, 13, 18, 0.85);
+    backdrop-filter: blur(12px); 
+    -webkit-backdrop-filter: blur(12px);
+    display: flex; 
+    flex-direction: row; 
+    align-items: center;
+    padding: 15px 30px; 
+    border-bottom: 1px solid var(--border-color);
+    position: sticky; 
+    top: 0; 
+    z-index: 100; 
+    overflow-x: auto; 
 }
+
+.sidebar::-webkit-scrollbar { height: 4px; }
+.sidebar::-webkit-scrollbar-thumb { background: var(--border-color); border-radius: 4px; }
 
 .sidebar-header { 
-    padding: 0 25px 20px; 
-    border-bottom: 1px solid var(--border-color); 
-    margin-bottom: 20px; 
+    padding: 0 30px 0 0; 
+    border-right: 1px solid var(--border-color); 
+    margin-right: 20px; 
 }
-
-.sidebar-header h2 { 
-    font-size: 1.3rem; 
-    font-weight: 800; 
-    color: var(--text-light);
-    letter-spacing: 0.5px;
-}
-
+.sidebar-header h2 { font-size: 1.2rem; font-weight: 800; }
+.sidebar-header small { display: none; }
 
 .nav-btn {
     background: none; 
     border: none; 
     color: var(--text-muted); 
-    padding: 14px 25px;
-    text-align: left; 
+    padding: 10px 20px; 
     font-size: 0.95rem; 
     cursor: pointer; 
-    transition: all 0.3s ease;
+    transition: all 0.3s ease; 
     display: flex; 
     align-items: center; 
-    gap: 15px;
-    font-weight: 500;
+    gap: 8px;
+    font-weight: 500; 
+    border-radius: 8px; 
+    white-space: nowrap; 
+    font-family: var(--font-heading);
 }
+.nav-btn:hover { color: var(--text-light); }
+.nav-btn.active { background-color: rgba(179, 102, 255, 0.1); color: var(--primary-color); }
 
-.nav-btn:hover { 
-    background-color: rgba(147, 51, 234, 0.1); 
-    color: var(--text-light); 
-}
-
-.nav-btn.active { 
-    background-color: rgba(147, 51, 234, 0.15); 
-    color: var(--text-light); 
-    border-left: 4px solid var(--primary-color);
-    font-weight: 600;
-}
-
-
+/* =========================================
+   CONTENIDO PRINCIPAL
+   ========================================= */
 .main-content { 
-    flex: 1; 
-    padding: 50px; 
-    overflow-y: auto; 
-    background-color: var(--bg-color);
-}
-
-
-.main-content::-webkit-scrollbar {
-    width: 8px;
-}
-.main-content::-webkit-scrollbar-track {
-    background: var(--bg-color);
-}
-.main-content::-webkit-scrollbar-thumb {
-    background: var(--border-color);
-    border-radius: 4px;
-}
-.main-content::-webkit-scrollbar-thumb:hover {
-    background: var(--primary-color);
-}
-
-.content-section { 
-    display: none; 
-    max-width: 1000px; 
+    width: 100%; 
+    max-width: 1100px; 
     margin: 0 auto; 
-    animation: fadeIn 0.4s ease-out; 
+    padding: 60px 20px 100px; 
+}
+.content-section { display: none; animation: fadeIn 0.4s ease-out; }
+.content-section.active { display: block; }
+@keyframes fadeIn { from { opacity: 0; transform: translateY(15px); } to { opacity: 1; transform: translateY(0); } }
+
+h1 { margin-bottom: 20px; font-weight: 800; font-size: 3.2rem; text-align: center; line-height: 1.2; letter-spacing: -1px; }
+h1 + p { text-align: center; font-size: 1.15rem; max-width: 800px; margin: 0 auto 60px; color: var(--text-muted); }
+.content-section > h3 { margin: 60px 0 30px; font-size: 1.8rem; font-weight: 700; text-align: center; }
+
+/* =========================================
+   SISTEMA DE TARJETAS (FASES 1 A 7)
+   ========================================= */
+.content-section:not(#fase8) ul.list-group {
+    display: grid; 
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); 
+    gap: 25px; 
+    padding: 0; 
+    margin: 40px 0;
 }
 
-.content-section.active { 
+.content-section:not(#fase8) ul.list-group > li {
+    background-color: var(--card-bg); 
+    border: 1px solid var(--border-color);
+    border-radius: 16px; 
+    padding: 30px 25px; 
+    list-style: none; 
+    transition: transform 0.3s ease, border-color 0.3s ease;
+    display: flex; 
+    flex-direction: column; 
+    align-items: center; 
+    text-align: center;
+}
+
+.content-section:not(#fase8) ul.list-group > li:hover {
+    transform: translateY(-5px); 
+    border-color: var(--primary-color); 
+    box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+}
+
+/* Títulos de las tarjetas (Solo afecta al primer strong directo) */
+.content-section:not(#fase8) ul.list-group > li > strong:first-child {
     display: block; 
-}
-
-@keyframes fadeIn { 
-    from { opacity: 0; transform: translateY(12px); } 
-    to { opacity: 1; transform: translateY(0); } 
-}
-
-
-h1 { 
-    color: var(--text-light); 
+    font-size: 1.2rem; 
+    color: var(--primary-color); 
     margin-bottom: 15px; 
-    font-weight: 800; 
-    font-size: 2.6rem; 
-    letter-spacing: -0.5px;
+    font-family: var(--font-heading);
 }
 
-
-h1::after {
-    content: '';
-    display: block;
-    width: 60px;
-    height: 4px;
-    background-color: var(--primary-color);
-    margin-top: 12px;
-    border-radius: 2px;
-}
-
-h3 { 
-    color: var(--text-light); 
-    margin: 45px 0 20px; 
-    font-size: 1.5rem; 
-    font-weight: 700;
-    border-bottom: 1px solid var(--border-color); 
-    padding-bottom: 8px; 
+/* =========================================
+   DISEÑO NORMAL (FASE 8 Y TEXTOS GENERALES)
+   ========================================= */
+/* Reseteamos el comportamiento de las listas en la Fase 8 */
+#fase8 .list-group {
     display: flex;
-    align-items: center;
-    gap: 10px;
+    flex-direction: column;
+    gap: 40px;
+    background: transparent;
+    border: none;
+    padding: 0;
 }
 
-
-h3::before {
-    content: '■';
-    color: var(--primary-color);
-    font-size: 1.1rem;
+#fase8 .list-group > .list-group-item {
+    background-color: transparent;
+    border: none;
+    padding: 0;
+    margin: 0;
 }
 
-p { 
-    color: var(--text-muted); 
-    line-height: 1.7; 
-    margin-bottom: 20px; 
+/* Listas numeradas y viñetas vuelven a ser normales */
+ol, ul { padding-left: 20px; margin-bottom: 20px; }
+li { margin-bottom: 10px; display: list-item; }
+strong { color: var(--primary-color); font-weight: 600; }
+
+/* Títulos de la Fase 8 */
+#fase8 h5 { font-size: 1.4rem; color: var(--primary-color); margin-bottom: 15px; font-weight: 700; display: flex; align-items: center; gap: 12px; }
+#fase8 h3 { font-size: 1.25rem; margin: 30px 0 15px; border-bottom: 1px solid var(--border-color); padding-bottom: 12px; color: var(--text-light); display: flex; align-items: center; gap: 10px; font-weight: 600; }
+
+/* =========================================
+   PÁRRAFOS, CÓDIGO Y ALERTAS
+   ========================================= */
+p { margin-bottom: 15px; }
+
+/* Párrafos destacados */
+.content-section .card-body > p {
     font-size: 1.05rem; 
+    color: var(--text-main); 
+    background: var(--card-bg); 
+    padding: 25px; 
+    border-radius: 12px;
+    border: 1px solid var(--border-color); 
+    margin-bottom: 20px;
 }
 
-ul, ol { 
-    margin-bottom: 25px; 
-    padding-left: 25px; 
-    color: var(--text-muted); 
-    line-height: 1.7;
-    font-size: 1.05rem;
+/* Bloques de código (Evitamos desbordamiento) */
+pre {
+    width: 100%; 
+    max-width: 100%;
+    overflow-x: auto; 
+    background-color: #060608; 
+    padding: 20px; 
+    border-radius: 8px; 
+    border: 1px solid #1a1a24;
+    margin: 15px 0; 
+    font-family: 'Fira Code', 'Courier New', monospace;
+    font-size: 0.95rem;
+}
+pre code { background: transparent; padding: 0; border: none; color: inherit; }
+code { 
+    font-family: 'Fira Code', 'Courier New', monospace; 
+    background-color: rgba(179, 102, 255, 0.1); 
+    color: var(--primary-color); 
+    padding: 4px 8px; 
+    border-radius: 6px; 
+    font-size: 0.9em; 
 }
 
-li {
-    margin-bottom: 8px;
-}
-
-strong {
+/* Alertas */
+.alert {
+    background-color: rgba(179, 102, 255, 0.05);
+    border: 1px solid rgba(179, 102, 255, 0.2);
+    border-radius: 12px;
     color: var(--text-light);
-    font-weight: 600;
+    padding: 25px;
+    display: flex; 
+    flex-direction: column; 
+    align-items: center; 
+    text-align: center; 
+    margin: 20px 0;
 }
 
-
-.card {
-    background-color: var(--card-bg) !important;
-    border: 1px solid var(--border-color) !important;
-    color: var(--text-main) !important;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2) !important;
-}
-
-.card-header {
-    background-color: #0b0f19 !important;
-    border-bottom: 1px solid var(--border-color) !important;
-}
-
-code {
-    font-family: 'Fira Code', 'Courier New', monospace !important;
-}
+/* Limpieza de contenedores de Bootstrap */
+.card { background: transparent; border: none; box-shadow: none; }
+.card-body { padding: 0; }
